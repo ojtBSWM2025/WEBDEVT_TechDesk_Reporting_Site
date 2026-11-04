@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="theme-color" content="#f7f7f2">
     <meta name="description" content="Report a suspicious link, message, or online incident to the Suri community.">
-    <title>Submit a Report | Suri</title>
+    <title>Submit a Report | TechDesk</title>
 
     <!-- Shared Bootstrap styles keep this page consistent with the homepage. -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
@@ -61,58 +61,53 @@
           </div>
 
           <form class="report-form bg-white" id="report-form" novalidate>
-            <div class="row g-4">
-              <div class="col-12">
-                <label class="form-label" for="report-category">Scam category <span aria-hidden="true">*</span></label>
-                <select class="form-select" id="report-category" name="category" required>
-                  <option value="" selected disabled>Select a category</option>
-                  <option value="phishing">Phishing</option>
-                  <option value="qrishing">QRishing</option>
-                  <option value="smishing">Smishing</option>
-                  <option value="vishing">Vishing</option>
-                  <option value="fake-shop">Fake online shop</option>
-                  <option value="impersonation">Impersonation</option>
-                  <option value="other">Other or unsure</option>
-                </select>
-                <div class="invalid-feedback">Choose the category that best fits, or select Other or unsure.</div>
-              </div>
+              <div class="row g-4">
+                  <div class="col-12">
+                      <label class="form-label" for="report-category">Issue Details <span aria-hidden="true">*</span></label>
+                      <select class="form-select" id="report-category" name="category" required>
+                          <option value="" selected disabled>Select a category</option>
+                          <option value="phishing">WiFi Connection Issue</option>
+                          <option value="qrishing">Hardware Issue</option>
+                          <option value="smishing">Software Issue</option>
+                          <option value="vishing">Login/Account Issue</option>
+                      </select>
+                      <div class="invalid-feedback">Choose the category that best fits, or select Other or unsure.</div>
+                  </div>
 
-              <div class="col-12">
-                <label class="form-label" for="incident-description">Incident description <span aria-hidden="true">*</span></label>
-                <textarea class="form-control" id="incident-description" name="description" rows="4" placeholder="What happened? Include details that may help reviewers understand the report." required></textarea>
-                <div class="form-text">Do not include passwords or one-time codes.</div>
-                <div class="invalid-feedback">Describe the incident before submitting.</div>
-              </div>
+                  <div class="col-12">
+                      <label class="form-label" for="incident-description">Incident description <span aria-hidden="true">*</span></label>
+                      <textarea class="form-control" id="incident-description" name="description" rows="4" placeholder="What happened? Provide detailed information about the issue." required></textarea>
+                      <div class="form-text">Do not include passwords or one-time codes.</div>
+                      <div class="invalid-feedback">Provide detailed information about the issue before submitting.</div>
+                  </div>
 
-              <div class="col-12">
-                <label class="form-label" for="suspicious-text">Paste the suspicious message or text</label>
-                <textarea class="form-control" id="suspicious-text" name="suspicious-text" rows="3" placeholder="Paste the message, link, or post here if available."></textarea>
-                <div class="form-text">Optional. Include the original link as text when possible.</div>
-              </div>
+                  <div class="col-12">
+                      <label class="form-label" for="report-screenshot">Screenshot attachment</label>
+                      <input class="form-control" id="report-screenshot" name="screenshot" type="file" accept="image/png,image/jpeg,image/webp">
+                      <div class="form-text">Optional. PNG, JPG, or WebP images up to 10 MB.</div>
+                      <div class="invalid-feedback">Choose a supported image no larger than 10 MB.</div>
+                  </div>
 
-              <div class="col-12">
-                <label class="form-label" for="report-screenshot">Screenshot attachment</label>
-                <input class="form-control" id="report-screenshot" name="screenshot" type="file" accept="image/png,image/jpeg,image/webp">
-                <div class="form-text">Optional. PNG, JPG, or WebP images up to 10 MB.</div>
-                <div class="invalid-feedback">Choose a supported image no larger than 10 MB.</div>
-              </div>
-
-              <div class="col-md-6">
-                <label class="form-label" for="sender">From (sender) <span aria-hidden="true">*</span></label>
-                <input class="form-control" id="sender" name="sender" type="text" placeholder="Phone number or name, e.g. GLOBE, SMART, NCAP" required>
-                <div class="invalid-feedback">Enter the sender's name or number.</div>
-              </div>
-              <div class="col-md-6">
-                <label class="form-label" for="date-received">Date received <span aria-hidden="true">*</span></label>
-                <input class="form-control" id="date-received" name="date-received" type="date" required>
-                <div class="form-text">Future dates are not allowed.</div>
-                <div class="invalid-feedback">Choose today or an earlier date.</div>
+                  <div class="col-md-6">
+                      <label class="form-label" for="sender">From (sender) <span aria-hidden="true">*</span></label>
+                      <input class="form-control" id="sender" name="sender" type="text" placeholder="Phone number or name, e.g. GLOBE, SMART, NCAP" required>
+                      <div class="invalid-feedback">Enter the sender's name or number.</div>
+                  </div>
+                  <label class="form-label" for="report-category">Issue Details <span aria-hidden="true">*</span></label>
+                  <select class="form-select" id="report-category" name="category" required>
+                      <option value="" selected disabled>Urgency/Impact Level</option>
+                      <option value="phishing">Least Concern</option>
+                      <option value="qrishing">Needs Attention</option>
+                      <option value="smishing">High Impact</option>
+                      <option value="vishing">Needs Immediate Attention</option>
+                  </select>
+                  <div class="invalid-feedback">Choose the category that best fits, or select Other or unsure.</div>
               </div>
 
               <div class="col-12">
                 <label class="form-label" for="email-address">Email address <span aria-hidden="true">*</span></label>
-                <input class="form-control" id="email-address" name="email" type="email" autocomplete="email" placeholder="you@example.com" required>
-                <div class="invalid-feedback">Enter a valid email address.</div>
+                <input class="form-control" id="email-address" name="email" type="email" autocomplete="email" placeholder="juan.delacruz@benilde.edu.ph" required>
+                <div class="invalid-feedback">Enter a valid Benilde email address.</div>
               </div>
 
               <div class="col-12">
@@ -166,8 +161,8 @@
 
     <footer class="site-footer py-4">
       <div class="container d-flex flex-column flex-sm-row justify-content-between align-items-sm-center gap-2">
-        <p class="footer-copyright mb-0">&copy; 2026 Suri</p>
-        <p class="footer-notice mb-0">This is intended for Web Development (WEBDEVT) demo purposes only.</p>
+        <p class="footer-copyright mb-0">TechDesk</p>
+        <p class="footer-notice mb-0">Report • Track • Resolve</p>
       </div>
     </footer>
   </body>
