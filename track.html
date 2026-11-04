@@ -1,132 +1,413 @@
 <!doctype html>
 <html lang="en">
-  <head>
+<head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="theme-color" content="#f7f7f2">
-    <meta name="description" content="View the status and details of a Suri community report.">
-    <title>Track a Report | Suri</title>
-
-    <!-- Reuse the site's Bootstrap foundation, typography, navigation, and footer. -->
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <title>Track a Report | TechDesk</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="styles/index.css">
-    <link rel="stylesheet" href="styles/menu.css">
-    <link rel="stylesheet" href="styles/track.css">
-    <link rel="stylesheet" href="styles/footer.css">
-    <script src="scripts/menu.js" defer></script>
-    <script src="scripts/track.js" defer></script>
-  </head>
-  <body>
-    <header class="navbar navbar-expand-md sticky-top bg-light px-3 px-lg-5">
-      <div class="container-fluid">
-        <a class="navbar-brand d-flex align-items-center gap-2 mb-0" href="index.html#home" aria-label="Suri home">
-          <span class="brand-mark" aria-hidden="true">s</span>
-          <span class="brand-name fs-4 fw-bold">suri<span class="brand-period">.</span></span>
-        </a>
 
-        <button class="navbar-toggler" type="button" aria-label="Open navigation menu" aria-expanded="false" aria-controls="site-navigation">
-          <span class="navbar-toggler-icon" aria-hidden="true"></span>
-        </button>
+    <style>
+        :root {
+            --wireframe-bg: #f3f6ee;
+            --card-bg-light: #ffffff;
+            --sage-tint: #e4ebd9;
+            --sage-border: #c8d5b9;
+            --sage-dark: #5a7352;
+            --text-main: #2b332a;
+            --text-muted: #6c757d;
+        }
 
-        <nav class="collapse navbar-collapse justify-content-md-end" id="site-navigation" aria-label="Main navigation">
-          <div class="navbar-nav align-items-md-center gap-md-5">
-            <a class="nav-link" href="index.html#home">Home</a>
-            <a class="nav-link" href="index.html#how-it-works">About</a>
-            <a class="nav-link" href="index.html#volunteer">Volunteer</a>
-            <a class="btn btn-outline-dark ms-md-2" href="report.html">Report</a>
-          </div>
-        </nav>
-      </div>
+        body {
+            background-color: var(--wireframe-bg);
+            color: var(--text-main);
+            font-family: 'DM Sans', sans-serif;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+        }
+
+        h1, h2, h3, h4, .navbar-brand {
+            font-family: 'Space Grotesk', sans-serif;
+        }
+
+        .navbar {
+            background-color: #ffffff !important;
+            border-bottom: 1px solid var(--sage-border);
+        }
+
+        .track-hero-banner {
+            position: relative;
+            background: linear-gradient(rgba(0, 0, 0, 0.45), rgba(0, 0, 0, 0.45)), url('https://images.unsplash.com/photo-1497366216548-37526070297c?auto=format&fit=crop&w=1200&q=80') center/cover no-repeat;
+            color: #ffffff;
+            padding: 2.5rem 2rem;
+            border-radius: 8px;
+            margin-bottom: 1.5rem;
+        }
+
+        .track-breadcrumb {
+            font-size: 0.8rem;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            opacity: 0.85;
+            margin-bottom: 0.25rem;
+        }
+
+        .track-hero-title {
+            font-weight: 700;
+            font-size: 2rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .track-hero-copy {
+            font-size: 0.95rem;
+            max-width: 650px;
+            opacity: 0.9;
+            margin-bottom: 0;
+        }
+
+        .track-search-card {
+            background-color: var(--sage-tint);
+            border: 1px solid var(--sage-border);
+            border-radius: 10px;
+            padding: 1.25rem 1.5rem;
+            margin-bottom: 1.25rem;
+        }
+
+            .track-search-card .form-label {
+                font-weight: 600;
+                font-size: 0.9rem;
+                color: var(--text-main);
+            }
+
+            .track-search-card .form-control {
+                background-color: #ffffff;
+                border: 1px solid var(--sage-border);
+            }
+
+        .report-details-card {
+            background-color: var(--sage-tint);
+            border: 1px solid var(--sage-border);
+            border-radius: 10px;
+            padding: 1.5rem;
+            margin-bottom: 1.25rem;
+        }
+
+        .section-card-title {
+            font-weight: 700;
+            font-size: 1.1rem;
+            color: var(--text-main);
+            margin-bottom: 1rem;
+        }
+
+        .detail-label {
+            font-size: 0.75rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            color: var(--text-muted);
+            letter-spacing: 0.03em;
+            margin-bottom: 0.1rem;
+        }
+
+        .detail-value {
+            font-size: 0.95rem;
+            font-weight: 600;
+            color: var(--text-main);
+        }
+
+        .status-callout-box {
+            background-color: #ffffff;
+            border: 1px solid var(--sage-border);
+            border-radius: 8px;
+            padding: 1rem;
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+
+        .status-callout-icon {
+            font-size: 1.6rem;
+            color: #d97706;
+        }
+
+        .status-callout-title {
+            font-weight: 700;
+            font-size: 0.95rem;
+            margin-bottom: 0.1rem;
+        }
+
+        .status-callout-desc {
+            font-size: 0.8rem;
+            color: var(--text-muted);
+            margin-bottom: 0;
+        }
+
+        .report-timeline-card {
+            background-color: var(--sage-tint);
+            border: 1px solid var(--sage-border);
+            border-radius: 10px;
+            padding: 1.5rem;
+        }
+
+        .wireframe-timeline {
+            display: flex;
+            justify-content: space-between;
+            position: relative;
+            margin-top: 1rem;
+            padding: 0 1rem;
+        }
+
+            .wireframe-timeline::before {
+                content: '';
+                position: absolute;
+                top: 14px;
+                left: 10%;
+                right: 10%;
+                height: 3px;
+                background-color: var(--sage-border);
+                z-index: 1;
+            }
+
+        .w-step {
+            position: relative;
+            z-index: 2;
+            text-align: center;
+            background: transparent;
+            flex: 1;
+        }
+
+        .w-step-dot {
+            width: 28px;
+            height: 28px;
+            border-radius: 50%;
+            background-color: #ffffff;
+            border: 2px solid var(--sage-border);
+            color: var(--text-muted);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 0.4rem;
+            font-size: 0.75rem;
+        }
+
+        .w-step.completed .w-step-dot {
+            background-color: #198754;
+            border-color: #198754;
+            color: #ffffff;
+        }
+
+        .w-step.active .w-step-dot {
+            background-color: var(--sage-dark);
+            border-color: var(--sage-dark);
+            color: #ffffff;
+        }
+
+        .w-step-title {
+            font-size: 0.85rem;
+            font-weight: 700;
+            margin-bottom: 0.1rem;
+        }
+
+        .w-step-date {
+            font-size: 0.72rem;
+            color: var(--text-muted);
+        }
+
+        footer {
+            margin-top: auto;
+            background-color: #ffffff;
+            border-top: 1px solid var(--sage-border);
+        }
+    </style>
+</head>
+<body>
+    <header class="navbar navbar-expand-md sticky-top px-3 px-lg-5">
+        <div class="container-fluid">
+            <a class="navbar-brand fw-bold" href="index.html">TechDesk</a>
+            <nav class="navbar-nav flex-row gap-3 gap-md-4 ms-auto small">
+                <a class="nav-link" href="index.html">Home</a>
+                <a class="nav-link" href="report.html">Report an issue</a>
+                <a class="nav-link active fw-bold text-dark" href="track.html">Track a Report</a>
+                <a class="nav-link" href="faq.html">FAQ</a>
+                <a class="nav-link" href="contact.html">Contact</a>
+            </nav>
+        </div>
     </header>
 
-    <main>
-      <section class="track-hero d-flex align-items-center" aria-labelledby="track-title">
+    <main class="py-4">
         <div class="container">
-          <p class="track-eyebrow text-uppercase fw-bold mb-2">Report status</p>
-          <h1 class="track-hero-title mb-2" id="track-title">Track a report</h1>
-          <p class="track-hero-copy mb-0">Follow a report from submission through review and verdict.</p>
-        </div>
-      </section>
-
-      <section class="track-main py-5" aria-label="Report tracking details">
-        <div class="container">
-          <form class="track-search mb-4" id="track-search-form">
-            <label class="form-label" for="track-report-number">Report number</label>
-            <div class="input-group">
-              <input class="form-control" id="track-report-number" name="report-number" type="text" placeholder="e.g. SR-20261025-ABCDE" required>
-              <button class="btn btn-dark" type="submit">Find report</button>
-            </div>
-            <p class="form-text mb-0">Try sample cases: SR-20261025-1001 (pending), SR-20261025-1002 (community review), or SR-20261025-1003 (verdict).</p>
-          </form>
-
-          <p class="track-notice" id="track-notice" role="status" aria-live="polite" hidden></p>
-
-          <article class="track-report" id="track-report" aria-labelledby="track-report-heading" hidden>
-            <header class="track-report-header">
-              <div>
-                <p class="track-category mb-1" id="track-category"></p>
-                <h2 class="track-report-number mb-0" id="track-report-heading"></h2>
-              </div>
-              <span class="track-status" id="track-status"></span>
-            </header>
-
-            <div class="row g-4 py-4">
-              <div class="col-12">
-                <h3 class="track-detail-title">Incident description</h3>
-                <p class="track-detail-value mb-0" id="track-description"></p>
-              </div>
-              <div class="col-md-6">
-                <h3 class="track-detail-title">Sender</h3>
-                <p class="track-detail-value mb-0" id="track-sender"></p>
-              </div>
-              <div class="col-md-6">
-                <h3 class="track-detail-title">Date received</h3>
-                <p class="track-detail-value mb-0" id="track-date-received"></p>
-              </div>
-              <div class="col-md-6">
-                <h3 class="track-detail-title">Location</h3>
-                <p class="track-detail-value mb-0" id="track-location"></p>
-              </div>
-              <div class="col-md-6">
-                <h3 class="track-detail-title">Submitted</h3>
-                <p class="track-detail-value mb-0" id="track-submitted"></p>
-              </div>
-              <div class="col-12" id="track-message-row" hidden>
-                <h3 class="track-detail-title">Submitted message</h3>
-                <p class="track-detail-value track-message mb-0" id="track-message"></p>
-              </div>
-              <div class="col-12" id="track-screenshot-row" hidden>
-                <h3 class="track-detail-title">Screenshot attachment</h3>
-                <p class="track-detail-value mb-0" id="track-screenshot"></p>
-              </div>
+            <div class="track-hero-banner">
+                <div class="track-breadcrumb">HOME &gt; Track a Report</div>
+                <h1 class="track-hero-title">Track a Report</h1>
+                <p class="track-hero-copy">Input your reference number to check the status of your report. You can also view detailed information and updates here.</p>
             </div>
 
-            <section class="track-progress" aria-labelledby="track-progress-title">
-              <h3 class="track-progress-title" id="track-progress-title">Progress</h3>
-              <ol class="track-timeline" id="track-timeline"></ol>
-            </section>
+            <div class="track-search-card">
+                <form id="track-search-form">
+                    <label class="form-label mb-2" for="track-report-number"><i class="bi bi-search"></i> Enter Reference Number</label>
+                    <div class="input-group">
+                        <input class="form-control" id="track-report-number" type="text" placeholder="e.g. TS-2024-00123" value="TS-2024-00123" required>
+                        <button class="btn btn-dark px-4" type="submit">Track Report</button>
+                    </div>
+                    <div class="form-text mt-2 text-muted small">Input the reference number you received after submitting your report. Try sample: <strong>TS-2024-00123</strong></div>
+                </form>
+            </div>
 
-            <section class="track-verdict mt-4" id="track-verdict" aria-labelledby="track-verdict-title" hidden>
-              <p class="track-verdict-kicker text-uppercase fw-bold mb-2">Published verdict</p>
-              <h3 class="track-verdict-title mb-2" id="track-verdict-title"></h3>
-              <p class="track-verdict-copy mb-0" id="track-verdict-copy"></p>
-            </section>
-          </article>
+            <div class="alert alert-warning" id="track-notice" role="status" hidden></div>
 
-          <p class="track-demo-note small mt-4 mb-0">Sample cases load from data/reports.json. Submitted reports are stored only in this browser; reports are not sent to an agency or reviewed by a live AI system.</p>
+            <article id="track-report">
+                <div class="report-details-card">
+                    <h2 class="section-card-title">Report Details</h2>
+                    <div class="row g-3">
+                        <div class="col-sm-6">
+                            <div class="detail-label">Reference Number</div>
+                            <div class="detail-value" id="track-report-heading">TS-2024-00123</div>
+                        </div>
+                        <div class="col-sm-6">
+                            <div class="detail-label">Date Submitted</div>
+                            <div class="detail-value" id="track-date-submitted">March 12, 2024 - 10:24 AM</div>
+                        </div>
+                        <div class="col-sm-6">
+                            <div class="detail-label">Category</div>
+                            <div class="detail-value" id="track-category">Wi-Fi Connection Issues</div>
+                        </div>
+                        <div class="col-sm-6">
+                            <div class="detail-label">Location</div>
+                            <div class="detail-value" id="track-location">SDA Building, 5F - Lab 10</div>
+                        </div>
+                        <div class="col-12">
+                            <div class="detail-label">Description</div>
+                            <div class="detail-value" id="track-description">Unable to connect to the campus wi-fi on the 5th floor. Already tried restarting the device.</div>
+                        </div>
+
+                        <div class="col-12 mt-3">
+                            <div class="status-callout-box">
+                                <div class="status-callout-icon"><i class="bi bi-gear-fill"></i></div>
+                                <div>
+                                    <div class="detail-label">Status</div>
+                                    <div class="status-callout-title" id="track-status-title">In Progress</div>
+                                    <p class="status-callout-desc" id="track-status-desc">Our team is currently working on your report.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="report-timeline-card">
+                    <h2 class="section-card-title">Report Timeline</h2>
+                    <div class="wireframe-timeline" id="track-timeline">
+                        <div class="w-step completed">
+                            <div class="w-step-dot"><i class="bi bi-check"></i></div>
+                            <div class="w-step-title">Submitted</div>
+                            <div class="w-step-date">March 12, 2024 10:24 AM</div>
+                        </div>
+                        <div class="w-step active">
+                            <div class="w-step-dot"><i class="bi bi-check"></i></div>
+                            <div class="w-step-title">In Progress</div>
+                            <div class="w-step-date">March 12, 2024 11:15 AM</div>
+                        </div>
+                        <div class="w-step">
+                            <div class="w-step-dot"></div>
+                            <div class="w-step-title">Resolved</div>
+                            <div class="w-step-date">Pending</div>
+                        </div>
+                        <div class="w-step">
+                            <div class="w-step-dot"></div>
+                            <div class="w-step-title">Closed</div>
+                            <div class="w-step-date">Pending</div>
+                        </div>
+                    </div>
+                </div>
+            </article>
         </div>
-      </section>
     </main>
 
-    <footer class="site-footer py-4">
-      <div class="container d-flex flex-column flex-sm-row justify-content-between align-items-sm-center gap-2">
-        <p class="footer-copyright mb-0">&copy; 2026 Suri</p>
-        <p class="footer-notice mb-0">This is intended for Web Development (WEBDEVT) demo purposes only.</p>
-      </div>
+    <footer class="py-3">
+        <div class="container text-center text-muted small">
+            TechDesk &bull; Report &bull; Track &bull; Resolve
+        </div>
     </footer>
-  </body>
+
+    <script>
+        const mockReportsData = {
+            "TS-2024-00123": {
+                category: "Wi-Fi Connection Issues",
+                reportNumber: "TS-2024-00123",
+                dateSubmitted: "March 12, 2024 - 10:24 AM",
+                description: "Unable to connect to the campus wi-fi on the 5th floor. Already tried restarting the device.",
+                location: "SDA Building, 5F - Lab 10",
+                statusTitle: "In Progress",
+                statusDesc: "Our team is currently working on your report.",
+                timeline: [
+                    { title: "Submitted", date: "March 12, 2024 10:24 AM", status: "completed" },
+                    { title: "In Progress", date: "March 12, 2024 11:15 AM", status: "active" },
+                    { title: "Resolved", date: "Pending", status: "" },
+                    { title: "Closed", date: "Pending", status: "" }
+                ]
+            },
+            "TS-2024-00456": {
+                category: "Projector & AV Hardware",
+                reportNumber: "TS-2024-00456",
+                dateSubmitted: "March 10, 2024 - 02:00 PM",
+                description: "HDMI port on lecture room projector is loose and flickering.",
+                location: "Main Hall, Room 302",
+                statusTitle: "Resolved",
+                statusDesc: "Maintenance has replaced the faulty video cable connector.",
+                timeline: [
+                    { title: "Submitted", date: "March 10, 2024", status: "completed" },
+                    { title: "In Progress", date: "March 10, 2024", status: "completed" },
+                    { title: "Resolved", date: "March 11, 2024", status: "completed" },
+                    { title: "Closed", date: "March 11, 2024", status: "active" }
+                ]
+            }
+        };
+
+        const searchForm = document.getElementById('track-search-form');
+        const reportNumberInput = document.getElementById('track-report-number');
+        const noticeBox = document.getElementById('track-notice');
+        const reportArticle = document.getElementById('track-report');
+
+        if (searchForm) {
+            searchForm.addEventListener('submit', function (e) {
+                e.preventDefault();
+                const query = reportNumberInput.value.trim();
+
+                if (mockReportsData[query]) {
+                    const data = mockReportsData[query];
+
+                    document.getElementById('track-category').textContent = data.category;
+                    document.getElementById('track-report-heading').textContent = data.reportNumber;
+                    document.getElementById('track-date-submitted').textContent = data.dateSubmitted;
+                    document.getElementById('track-description').textContent = data.description;
+                    document.getElementById('track-location').textContent = data.location;
+                    document.getElementById('track-status-title').textContent = data.statusTitle;
+                    document.getElementById('track-status-desc').textContent = data.statusDesc;
+
+                    const timelineContainer = document.getElementById('track-timeline');
+                    timelineContainer.innerHTML = '';
+                    data.timeline.forEach(step => {
+                        const div = document.createElement('div');
+                        div.className = `w-step ${step.status}`;
+                        div.innerHTML = `
+                    <div class="w-step-dot"><i class="bi ${step.status === 'completed' || step.status === 'active' ? 'bi-check' : ''}"></i></div>
+                    <div class="w-step-title">${step.title}</div>
+                    <div class="w-step-date">${step.date}</div>
+                  `;
+                        timelineContainer.appendChild(div);
+                    });
+
+                    reportArticle.hidden = false;
+                    if (noticeBox) noticeBox.hidden = true;
+                } else {
+                    reportArticle.hidden = true;
+                    if (noticeBox) {
+                        noticeBox.textContent = `No report found matching "${reportNumberInput.value}". Try entering TS-2024-00123.`;
+                        noticeBox.hidden = false;
+                    }
+                }
+            });
+        }
+    </script>
+</body>
 </html>
