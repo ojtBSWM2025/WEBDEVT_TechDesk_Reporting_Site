@@ -1,71 +1,99 @@
-<!doctype html>
+
+<!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="theme-color" content="#f7f7f2">
     <meta name="description" content="TechDesk is a campus IT issue reporting and tracking platform where users can report technical problems and monitor their status.">
+
     <title>TechDesk | Having IT Problems?</title>
 
+    <!-- Bootstrap -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
+        rel="stylesheet"
+        integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH"
+        crossorigin="anonymous">
 
-    <!-- Bootstrap supplies the responsive layout and common interface styles. -->
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+    <!-- Bootstrap Icons -->
+    <link rel="stylesheet"
+        href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
 
-
-    <!-- A display font paired with a readable body font gives the page its own voice. -->
+    <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Space+Grotesk:wght@500;600;700&display=swap"
+        rel="stylesheet">
 
-
+    
     <!-- TechDesk Stylesheets -->
     <link rel="stylesheet" href="styles/index.css">
-    <link rel="stylesheet" href="styles/menu.css">
+    <link rel="stylesheet" href="styles/home-layout.css">
     <link rel="stylesheet" href="styles/hero.css">
     <link rel="stylesheet" href="styles/report-lookup.css">
     <link rel="stylesheet" href="styles/scams.css">
-    <link rel="stylesheet" href="styles/how-it-works.css">
-    <link rel="stylesheet" href="styles/volunteer.css">
-    <link rel="stylesheet" href="styles/agencies.css">
-    <link rel="stylesheet" href="styles/footer.css">
-</head>
 
+
+</head>
 
 <body>
 
-
-    <!-- A sticky header keeps the main actions close while the page is in view. -->
+    <!-- NAVIGATION -->
     <header class="navbar navbar-expand-md sticky-top bg-light px-3 px-lg-5">
         <div class="container-fluid">
 
-
             <!-- TechDesk Brand -->
-            <a class="navbar-brand d-flex align-items-center gap-2 mb-0" href="#home" aria-label="TechDesk home">
-                <span class="brand-mark" aria-hidden="true">
-                    <i class="bi bi-headset"></i>
-                </span>
-                <span class="brand-name fs-4 fw-bold">TechDesk<span class="brand-period">.</span></span>
+            <a class="navbar-brand d-flex align-items-center mb-0"
+                href="#home" aria-label="TechDesk home">
+
+                <img src="images/techdesk-logo.png"
+                    alt="TechDesk Logo"
+                    class="navbar-logo">
+
             </a>
 
-
             <!-- Navigation Toggle -->
-            <button class="navbar-toggler" type="button" aria-label="Open navigation menu" aria-expanded="false" aria-controls="site-navigation">
-                <span class="navbar-toggler-icon" aria-hidden="true"></span>
+            <button class="navbar-toggler"
+                type="button"
+                data-bs-toggle="collapse"
+                data-bs-target="#site-navigation"
+                aria-label="Toggle navigation"
+                aria-expanded="false"
+                aria-controls="site-navigation">
+
+                <span class="navbar-toggler-icon"></span>
             </button>
 
-
             <!-- Main Navigation -->
-            <nav class="collapse navbar-collapse justify-content-md-end" id="site-navigation" aria-label="Main navigation">
-                <div class="navbar-nav align-items-md-center gap-md-5">
-                    <a class="nav-link active" href="#home" aria-current="page">Home</a>
-                    <a class="nav-link" href="report.html">Report an Issue</a>
-                    <a class="nav-link" href="track.html">Track a Report</a>
-                    <a class="nav-link" href="faq.html">FAQ</a>
-                    <a class="btn btn-outline-dark ms-md-2" href="report.html">Report <span aria-hidden="true">↗</span></a>
+            <nav class="collapse navbar-collapse justify-content-md-end"
+                id="site-navigation"
+                aria-label="Main navigation">
+
+                <div class="navbar-nav align-items-md-center gap-md-4">
+
+                    <a class="nav-link active" href="#home" aria-current="page">
+                        Home
+                    </a>
+
+                    <a class="nav-link" href="report.html">
+                        Report an Issue
+                    </a>
+
+                    <a class="nav-link" href="track.html">
+                        Track a Report
+                    </a>
+
+                    <a class="nav-link" href="faq.html">
+                        FAQ
+                    </a>
+
+                    <a class="nav-link" href="#contact">
+                        Contact
+                    </a>
+
                 </div>
             </nav>
-
 
         </div>
     </header>
@@ -73,422 +101,429 @@
 
     <main>
 
+        <!-- HERO SECTION -->
+        <section class="hero d-flex align-items-center position-relative overflow-hidden"
+            id="home"
+            aria-labelledby="hero-title">
 
-        <!-- The hero introduces TechDesk and its main reporting action. -->
-        <section class="hero d-flex align-items-center position-relative overflow-hidden" id="home" aria-labelledby="hero-title">
-            <div class="container position-relative">
-                <div class="row g-5 align-items-center">
+            <div class="container-fluid px-0">
 
+                <div class="row g-0 align-items-stretch">
 
-                    <!-- Hero Content -->
-                    <div class="col-lg-8 hero-content">
-                        <p class="hero-eyebrow d-flex align-items-center gap-2 fw-bold mb-3">
-                            <span class="eyebrow-dot" aria-hidden="true"></span>
-                            IT SUPPORT MADE SIMPLE
-                        </p>
+                    <!-- Hero Content and Background Image -->
+                    <div class="col-lg-6 hero-content">
 
+                        <div class="hero-text-content">
 
-                        <h1 class="hero-title fw-semibold mb-0" id="hero-title">
-                            Having IT Problems?<br><span>Let's get it fixed.</span>
-                        </h1>
+                            <p class="hero-eyebrow d-flex align-items-center gap-2 fw-bold mb-3">
+                                <span class="eyebrow-dot" aria-hidden="true"></span>
+                                IT SUPPORT MADE SIMPLE
+                            </p>
 
+                            <h1 class="hero-title fw-semibold mb-0" id="hero-title">
+                                Having IT Problems?
+                                <span>Let's get it fixed.</span>
+                            </h1>
 
-                        <p class="hero-description lead my-4">
-                            Experiencing technical difficulties? Report your IT concerns,
-                            track their progress, and get the assistance you need through TechDesk.
-                        </p>
+                            <p class="hero-description lead my-4">
+                                Experiencing technical difficulties?
+                                Report your IT concerns, track their progress,
+                                and get the assistance you need through TechDesk.
+                            </p>
 
+                            <a class="btn btn-primary d-inline-flex align-items-center gap-3"
+                                href="report.html">
 
-                        <a class="btn btn-primary d-inline-flex align-items-center gap-4" href="report.html">
-                            Report an IT Issue <span aria-hidden="true">↗</span>
-                        </a>
+                                Report an Issue
+                                <span aria-hidden="true">↗</span>
 
+                            </a>
 
-                        <p class="hero-note small mt-4 mb-0">
-                            Your IT concerns matter. We're here to help.
-                        </p>
+                        </div>
+
                     </div>
 
+                    <!-- Hero Image -->
+                    <div class="col-lg-6 hero-image-container">
 
-                    <!-- Report Lookup -->
-                    <div class="col-lg-4">
-                        <aside class="report-lookup" id="report" aria-labelledby="report-lookup-title">
-                            <h2 class="report-lookup-title" id="report-lookup-title">Already submitted a report?</h2>
-                            <p class="report-lookup-copy">Enter your report number to check its status.</p>
+                        <img src="images/hero-right.jpg"
+                            alt="Campus learning environment"
+                            class="hero-image">
 
-
-                            <form id="report-lookup-form" action="track.html" method="get">
-                                <label class="form-label" for="report-number">Report number</label>
-
-
-                                <input class="form-control mb-3"
-                                       id="report-number"
-                                       name="reference"
-                                       type="text"
-                                       placeholder="e.g. TD-2026-001"
-                                       autocomplete="off"
-                                       required>
-
-
-                                <button class="btn btn-primary w-100" type="submit">
-                                    Check report status <span aria-hidden="true">→</span>
-                                </button>
-                            </form>
-                        </aside>
                     </div>
-
 
                 </div>
             </div>
-
-
-            <p class="photo-credit position-absolute bottom-0 end-0 small m-3">
-                A better way to report IT concerns.
-            </p>
         </section>
 
 
-        <!-- Static cards introduce common IT issues without needing JavaScript. -->
-        <section class="scam-types py-5" id="scam-types" aria-labelledby="scam-types-title">
+        <!-- HOW IT WORKS -->
+        <section class="how-it-works py-5"
+            id="how-it-works"
+            aria-labelledby="how-it-works-title">
+
             <div class="container py-lg-4">
 
+                <div class="how-heading mb-4">
 
-                <div class="scam-types-heading mb-4 mb-lg-5">
-                    <p class="scam-types-kicker text-uppercase fw-bold mb-2">KNOW WHAT TO REPORT</p>
-                    <h2 class="scam-types-title mb-3" id="scam-types-title">Common IT Issues</h2>
-                    <p class="scam-types-intro mb-0">
-                        Encountering technical difficulties? Here are some common
-                        IT concerns you can report through TechDesk.
+                    <p class="how-kicker text-uppercase fw-bold mb-2">
+                        FROM SUBMISSION TO RESOLUTION
                     </p>
-                </div>
 
+                    <h2 class="how-title mb-3" id="how-it-works-title">
+                        How It Works
+                    </h2>
 
-                <div class="row g-3 g-lg-4">
-
-
-                    <!-- Wi-Fi and Internet -->
-                    <div class="col-md-6 col-lg-4">
-                        <article class="scam-card h-100">
-                            <span class="scam-icon" aria-hidden="true"><i class="bi bi-wifi"></i></span>
-                            <h3 class="scam-card-title">Wi-Fi & Internet</h3>
-                            <p class="scam-card-description mb-0">
-                                Slow internet, connection problems, or unavailable
-                                network access.
-                            </p>
-                        </article>
-                    </div>
-
-
-                    <!-- Hardware -->
-                    <div class="col-md-6 col-lg-4">
-                        <article class="scam-card h-100">
-                            <span class="scam-icon" aria-hidden="true"><i class="bi bi-pc-display"></i></span>
-                            <h3 class="scam-card-title">Hardware Issues</h3>
-                            <p class="scam-card-description mb-0">
-                                Malfunctioning computers, keyboards, projectors,
-                                or other IT equipment.
-                            </p>
-                        </article>
-                    </div>
-
-
-                    <!-- Software -->
-                    <div class="col-md-6 col-lg-4">
-                        <article class="scam-card h-100">
-                            <span class="scam-icon" aria-hidden="true"><i class="bi bi-window"></i></span>
-                            <h3 class="scam-card-title">Software Problems</h3>
-                            <p class="scam-card-description mb-0">
-                                Application errors, software crashes,
-                                or installation concerns.
-                            </p>
-                        </article>
-                    </div>
-
-
-                    <!-- Login and Accounts -->
-                    <div class="col-md-6 col-lg-4">
-                        <article class="scam-card h-100">
-                            <span class="scam-icon" aria-hidden="true"><i class="bi bi-person-lock"></i></span>
-                            <h3 class="scam-card-title">Login & Accounts</h3>
-                            <p class="scam-card-description mb-0">
-                                Forgotten passwords, account access,
-                                or authentication problems.
-                            </p>
-                        </article>
-                    </div>
-
-
-                    <!-- Printer Issues -->
-                    <div class="col-md-6 col-lg-4">
-                        <article class="scam-card h-100">
-                            <span class="scam-icon" aria-hidden="true"><i class="bi bi-printer"></i></span>
-                            <h3 class="scam-card-title">Printer Issues</h3>
-                            <p class="scam-card-description mb-0">
-                                Printing errors, paper jams,
-                                or unavailable printers.
-                            </p>
-                        </article>
-                    </div>
-
-
-                    <!-- Other Issues -->
-                    <div class="col-md-6 col-lg-4">
-                        <article class="scam-card h-100">
-                            <span class="scam-icon" aria-hidden="true"><i class="bi bi-tools"></i></span>
-                            <h3 class="scam-card-title">Other IT Concerns</h3>
-                            <p class="scam-card-description mb-0">
-                                Any other technical problem that needs
-                                assistance from the IT support team.
-                            </p>
-                        </article>
-                    </div>
-
-
-                </div>
-
-
-                <!-- Report CTA -->
-                <div class="text-center mt-5">
-                    <a class="btn btn-primary d-inline-flex align-items-center gap-3" href="report.html">
-                        Report an IT Issue <span aria-hidden="true">↗</span>
-                    </a>
-                </div>
-
-
-            </div>
-        </section>
-
-
-        <!-- How It Works explains the reporting process. -->
-        <section class="how-it-works py-5" id="how-it-works" aria-labelledby="how-it-works-title">
-            <div class="container py-lg-4">
-
-
-                <div class="how-heading mb-5">
-                    <p class="how-kicker text-uppercase fw-bold mb-2">FROM SUBMISSION TO RESOLUTION</p>
-                    <h2 class="how-title mb-3" id="how-it-works-title">How it works</h2>
                     <p class="how-intro mb-0">
                         Getting help with your IT concerns is simple.
                         Here's how TechDesk works.
                     </p>
+
                 </div>
 
-
-                <div class="how-steps row g-4 position-relative">
-
+                <!-- Process Panel -->
+                <div class="how-steps row g-4 align-items-center">
 
                     <!-- Step 1 -->
                     <div class="col-md-4">
-                        <article class="how-step">
-                            <span class="step-number">01</span>
-                            <h3 class="step-title">Submit</h3>
-                            <p class="step-description mb-0">
-                                Fill out the report form with the details of your IT concern.
-                                Attach evidence if necessary.
-                            </p>
-                        </article>
-                    </div>
 
+                        <article class="how-step">
+
+                            <span class="step-number">01</span>
+
+                            <div class="step-icon" aria-hidden="true">
+                                <i class="bi bi-file-earmark-text"></i>
+                            </div>
+
+                            <div class="step-content">
+
+                                <h3 class="step-title">Submit</h3>
+
+                                <p class="step-description mb-0">
+                                    Fill out the report form with the details
+                                    of your IT concern. Attach evidence if necessary.
+                                </p>
+
+                            </div>
+
+                        </article>
+
+                    </div>
 
                     <!-- Step 2 -->
                     <div class="col-md-4">
-                        <article class="how-step">
-                            <span class="step-number">02</span>
-                            <h3 class="step-title">Review</h3>
-                            <p class="step-description mb-0">
-                                Your submitted report will be reviewed and assessed
-                                by the IT support team.
-                            </p>
-                        </article>
-                    </div>
 
+                        <article class="how-step">
+
+                            <span class="step-number">02</span>
+
+                            <div class="step-icon" aria-hidden="true">
+                                <i class="bi bi-envelope"></i>
+                            </div>
+
+                            <div class="step-content">
+
+                                <h3 class="step-title">Review</h3>
+
+                                <p class="step-description mb-0">
+                                    Your submitted report will be reviewed
+                                    and assessed by the IT support team.
+                                </p>
+
+                            </div>
+
+                        </article>
+
+                    </div>
 
                     <!-- Step 3 -->
                     <div class="col-md-4">
+
                         <article class="how-step">
+
                             <span class="step-number">03</span>
-                            <h3 class="step-title">Resolve</h3>
-                            <p class="step-description mb-0">
-                                The IT team works on your concern.
-                                Track your report to check its progress.
-                            </p>
+
+                            <div class="step-icon" aria-hidden="true">
+                                <i class="bi bi-gear-fill"></i>
+                            </div>
+
+                            <div class="step-content">
+
+                                <h3 class="step-title">Resolve</h3>
+
+                                <p class="step-description mb-0">
+                                    The IT team works on your concern.
+                                    Track your report to check its progress.
+                                </p>
+
+                            </div>
+
                         </article>
+
                     </div>
 
-
                 </div>
+
             </div>
         </section>
 
 
-        <!-- Help section replaces Suri's volunteer section. -->
-        <section class="volunteer-section position-relative d-flex align-items-center overflow-hidden" id="help" aria-labelledby="help-title">
-            <div class="volunteer-parallax" aria-hidden="true"></div>
-            <div class="volunteer-shade" aria-hidden="true"></div>
+        <!-- COMMON IT ISSUES -->
+        <section class="scam-types py-5"
+            id="scam-types"
+            aria-labelledby="scam-types-title">
 
+            <div class="container py-lg-4">
+
+                <div class="scam-types-heading mb-4 mb-lg-5">
+
+                    <p class="scam-types-kicker text-uppercase fw-bold mb-2">
+                        KNOW WHAT TO REPORT
+                    </p>
+
+                    <h2 class="scam-types-title mb-3" id="scam-types-title">
+                        Common IT Issues
+                    </h2>
+
+                    <p class="scam-types-intro mb-0">
+                        Encountering technical difficulties? Here are some
+                        common IT concerns you can report through TechDesk.
+                    </p>
+
+                </div>
+
+                <!-- Common Issues Panel -->
+                <div class="row g-3 g-lg-4">
+
+                    <!-- Wi-Fi Connection Issues -->
+                    <div class="col-md-6 col-lg-3">
+
+                        <article class="scam-card h-100">
+
+                            <span class="scam-icon" aria-hidden="true">
+                                <i class="bi bi-wifi"></i>
+                            </span>
+
+                            <div class="scam-card-content">
+
+                                <h3 class="scam-card-title">
+                                    Wi-Fi Connection Issues
+                                </h3>
+
+                                <p class="scam-card-description mb-0">
+                                    Slow or no internet connection on campus.
+                                </p>
+
+                            </div>
+
+                        </article>
+
+                    </div>
+
+                    <!-- Lab Unit Hardware Issues -->
+                    <div class="col-md-6 col-lg-3">
+
+                        <article class="scam-card h-100">
+
+                            <span class="scam-icon" aria-hidden="true">
+                                <i class="bi bi-pc-display"></i>
+                            </span>
+
+                            <div class="scam-card-content">
+
+                                <h3 class="scam-card-title">
+                                    Lab Unit Hardware Issues
+                                </h3>
+
+                                <p class="scam-card-description mb-0">
+                                    Dysfunctional computers, peripherals,
+                                    or equipment.
+                                </p>
+
+                            </div>
+
+                        </article>
+
+                    </div>
+
+                    <!-- Software Issues -->
+                    <div class="col-md-6 col-lg-3">
+
+                        <article class="scam-card h-100">
+
+                            <span class="scam-icon" aria-hidden="true">
+                                <i class="bi bi-window"></i>
+                            </span>
+
+                            <div class="scam-card-content">
+
+                                <h3 class="scam-card-title">
+                                    Software Issues
+                                </h3>
+
+                                <p class="scam-card-description mb-0">
+                                    Error messages, software installation,
+                                    or application issues.
+                                </p>
+
+                            </div>
+
+                        </article>
+
+                    </div>
+
+                    <!-- Login / Account Issues -->
+                    <div class="col-md-6 col-lg-3">
+
+                        <article class="scam-card h-100">
+
+                            <span class="scam-icon" aria-hidden="true">
+                                <i class="bi bi-person-lock"></i>
+                            </span>
+
+                            <div class="scam-card-content">
+
+                                <h3 class="scam-card-title">
+                                    Login / Account Issues
+                                </h3>
+
+                                <p class="scam-card-description mb-0">
+                                    Email login problems or difficulty
+                                    accessing accounts.
+                                </p>
+
+                            </div>
+
+                        </article>
+
+                    </div>
+
+                </div>
+            </div>
+            
+        </section>
+
+
+        <!-- NEED HELP SECTION -->
+        <section class="volunteer-section position-relative d-flex align-items-center overflow-hidden"
+            id="help"
+            aria-labelledby="help-title">
 
             <div class="container volunteer-content">
-                <div class="row">
-                    <div class="col-lg-8 col-xl-7">
 
+                <div class="row align-items-center">
 
-                        <p class="volunteer-eyebrow text-uppercase fw-bold mb-3">NEED ASSISTANCE?</p>
+                    <!-- Headset Icon -->
+                    <div class="col-auto">
 
+                        <div class="help-icon" aria-hidden="true">
+                            <i class="bi bi-headset"></i>
+                        </div>
 
-                        <h2 class="volunteer-title mb-3" id="help-title">
+                    </div>
+
+                    <!-- Help Text -->
+                    <div class="col">
+
+                        <p class="volunteer-eyebrow text-uppercase fw-bold mb-2">
+                            NEED ASSISTANCE?
+                        </p>
+
+                        <h2 class="volunteer-title mb-2" id="help-title">
                             We're here to help.
                         </h2>
 
-
-                        <p class="volunteer-description mb-4">
-                            Have questions about reporting an IT issue or tracking your concern?
-                            Visit our Frequently Asked Questions to learn more about TechDesk.
+                        <p class="volunteer-description mb-0">
+                            Have questions about reporting an IT issue
+                            or tracking your concern? Check our FAQs
+                            for more information.
                         </p>
 
+                    </div>
 
-                        <a class="btn btn-primary d-inline-flex align-items-center gap-3" href="faq.html">
-                            Visit FAQs <span aria-hidden="true">↗</span>
+                    <!-- FAQ Button -->
+                    <div class="col-lg-auto">
+
+                        <a class="btn btn-primary d-inline-flex align-items-center gap-3"
+                            href="faq.html">
+
+                            Go to FAQs
+                            <span aria-hidden="true">↗</span>
+
                         </a>
 
-
                     </div>
-                </div>
-            </div>
-        </section>
-
-
-        <!-- Frequently Asked Questions preview. -->
-        <section class="agency-directory py-5" id="faq-preview" aria-labelledby="faq-preview-title">
-            <div class="container py-lg-4">
-
-
-                <div class="agency-heading mb-4 mb-lg-5">
-                    <p class="agency-kicker text-uppercase fw-bold mb-2">QUICK ANSWERS</p>
-                    <h2 class="agency-title mb-3" id="faq-preview-title">Frequently Asked Questions</h2>
-                    <p class="agency-intro mb-0">
-                        Find answers to common questions about reporting,
-                        tracking, and resolving IT concerns.
-                    </p>
-                </div>
-
-
-                <div class="row g-3 g-lg-4">
-
-
-                    <!-- FAQ 1 -->
-                    <div class="col-md-6">
-                        <article class="agency-card h-100">
-                            <span class="agency-icon" aria-hidden="true"><i class="bi bi-file-earmark-text"></i></span>
-                            <h3 class="agency-card-title">How do I report an IT issue?</h3>
-                            <p class="agency-card-description">
-                                Go to the Report an Issue page, fill out the required
-                                information, and submit your concern.
-                            </p>
-                        </article>
-                    </div>
-
-
-                    <!-- FAQ 2 -->
-                    <div class="col-md-6">
-                        <article class="agency-card h-100">
-                            <span class="agency-icon" aria-hidden="true"><i class="bi bi-hash"></i></span>
-                            <h3 class="agency-card-title">Where can I find my report number?</h3>
-                            <p class="agency-card-description">
-                                Your report reference number will be provided
-                                after successfully submitting your concern.
-                            </p>
-                        </article>
-                    </div>
-
-
-                    <!-- FAQ 3 -->
-                    <div class="col-md-6">
-                        <article class="agency-card h-100">
-                            <span class="agency-icon" aria-hidden="true"><i class="bi bi-search"></i></span>
-                            <h3 class="agency-card-title">How can I track my report?</h3>
-                            <p class="agency-card-description">
-                                Enter your report reference number on the
-                                Track a Report page to check its status.
-                            </p>
-                        </article>
-                    </div>
-
-
-                    <!-- FAQ 4 -->
-                    <div class="col-md-6">
-                        <article class="agency-card h-100">
-                            <span class="agency-icon" aria-hidden="true"><i class="bi bi-clock-history"></i></span>
-                            <h3 class="agency-card-title">How long does resolution take?</h3>
-                            <p class="agency-card-description">
-                                Resolution time depends on the nature and urgency
-                                of the reported IT concern.
-                            </p>
-                        </article>
-                    </div>
-
 
                 </div>
-
-
-                <div class="text-center mt-5">
-                    <a class="btn btn-outline-dark d-inline-flex align-items-center gap-3" href="faq.html">
-                        View All FAQs <span aria-hidden="true">↗</span>
-                    </a>
-                </div>
-
 
             </div>
         </section>
-
 
     </main>
 
 
-    <!-- Footer -->
-    <footer class="site-footer py-4" id="contact">
-        <div class="container">
+    <!-- FOOTER -->
+    <footer class="site-footer py-3" id="contact">
 
+        <div class="container">
 
             <div class="d-flex flex-column flex-sm-row justify-content-between align-items-sm-center gap-3">
 
-
                 <!-- Footer Brand -->
                 <div class="footer-brand">
-                    <a class="footer-logo d-flex align-items-center gap-2 mb-2" href="#home">
-                        <span class="brand-mark" aria-hidden="true"><i class="bi bi-headset"></i></span>
-                        <span>TechDesk<span class="brand-period">.</span></span>
-                    </a>
 
+                    <a class="footer-logo d-flex align-items-center mb-2"
+                        href="#home">
+
+                        <img src="images/techdesk-logo.png"
+                            alt="TechDesk Logo"
+                            class="footer-logo-image">
+
+                    </a>
 
                     <p class="footer-notice mb-0">
                         Your platform for reporting and tracking IT concerns.
                     </p>
-                </div>
 
+                </div>
 
                 <!-- Footer Navigation -->
                 <div class="footer-links">
+
                     <h3>Quick Links</h3>
-                    <a href="index.html">Home</a>
-                    <a href="report.html">Report an Issue</a>
-                    <a href="track.html">Track a Report</a>
-                    <a href="faq.html">FAQ</a>
+
+                    <div class="footer-links-list">
+
+                        <a href="index.html">Home</a>
+                        <a href="report.html">Report an Issue</a>
+                        <a href="track.html">Track a Report</a>
+                        <a href="faq.html">FAQ</a>
+
+                    </div>
+
                 </div>
 
-
             </div>
-
 
             <!-- Copyright -->
-            <div class="footer-bottom mt-4">
-                <p class="footer-copyright mb-0">&copy; 2026 TechDesk</p>
-                <p class="footer-notice mb-0">IT Issue Reporting and Tracking System</p>
-            </div>
+            <div class="footer-bottom mt-3">
 
+                <p class="footer-copyright mb-0">
+                    &copy; 2026 TechDesk
+                </p>
+
+                <p class="footer-notice mb-0">
+                    IT Issue Reporting and Tracking System
+                </p>
+
+            </div>
 
         </div>
     </footer>
 
+
+    <!-- Bootstrap JavaScript -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
 
 </body>
 </html>
