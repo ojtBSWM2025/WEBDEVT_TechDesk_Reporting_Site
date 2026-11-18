@@ -1,0 +1,48 @@
+.report-lookup {
+    max-width: 100%;
+}
+
+.report-lookup-title {
+    color: #2F3A3A;
+    font-family: 'Space Grotesk', sans-serif;
+    font-size: 2rem;
+    font-weight: 700;
+    line-height: 1.2;
+    margin-bottom: 1rem;
+}
+
+.report-lookup-copy {
+    color: #555F5F;
+    font-size: 1rem;
+    line-height: 1.6;
+    margin-bottom: 1.5rem;
+}
+
+.report-lookup .form-label {
+    color: #2F3A3A;
+    font-weight: 600;
+}
+
+.report-lookup .form-control {
+    border: 1px solid #D5DEDA;
+    border-radius: 8px;
+    padding: 0.8rem 1rem;
+}
+
+.report-lookup .form-control:focus {
+    border-color: #5E8B7E;
+    box-shadow: 0 0 0 0.2rem rgba(94, 139, 126, 0.15);
+}
+
+.report-lookup .btn-primary {
+    background-color: #2F5D62;
+    border-color: #2F5D62;
+    border-radius: 8px;
+    padding: 0.8rem 1rem;
+    font-weight: 600;
+}
+
+.report-lookup .btn-primary:hover {
+    background-color: #24484C;
+    border-color: #24484C;
+}

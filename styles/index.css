@@ -1,0 +1,28 @@
+:root {
+    --primary-color: #2F5D62;
+    --secondary-color: #5E8B7E;
+    --accent-color: #A7C4BC;
+    --background-color: #F7F6F2;
+    --text-color: #2D3436;
+    --white: #FFFFFF;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: 'DM Sans', sans-serif;
+    background-color: var(--background-color);
+    color: var(--text-color);
+}
+
+img {
+    max-width: 100%;
+}

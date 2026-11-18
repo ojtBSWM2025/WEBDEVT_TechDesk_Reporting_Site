@@ -1,0 +1,545 @@
+
+/* HOME PAGE LAYOUT
+   Navbar, How It Works, Help Banner, Footer */
+
+/* GENERAL */
+
+:root {
+    --td-dark: #164E50;
+    --td-teal: #55AFB2;
+    --td-mint: #DCEEE8;
+    --td-cream: #F8F9F0;
+    --td-beige: #EEE5D2;
+    --td-brown: #776B58;
+}
+
+body {
+    background-color: #F7F6F2;
+    font-family: 'DM Sans', sans-serif;
+    color: #2D3436;
+}
+
+/* NAVBAR */
+
+header.navbar {
+    min-height: 78px;
+    padding-top: 0.35rem !important;
+    padding-bottom: 0.35rem !important;
+    background-color: #FFFFFF !important;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+}
+
+header.navbar .container-fluid {
+    min-height: 70px;
+}
+
+.navbar-logo {
+    height: 55px;
+    width: auto;
+    max-width: 200px;
+    object-fit: contain;
+    display: block;
+}
+
+.navbar-nav {
+    gap: 1.1rem;
+}
+
+.navbar-nav .nav-link {
+    color: #171717;
+    font-size: 1rem;
+    font-weight: 500;
+    transition: color 0.2s ease;
+}
+
+.navbar-nav .nav-link:hover,
+.navbar-nav .nav-link.active {
+    color: #31969A;
+}
+
+/*HOW IT WORKS*/
+
+.how-it-works {
+    background-color: #F7F6F2;
+    padding: 2.5rem 0 !important;
+}
+
+.how-heading {
+    max-width: 750px;
+    margin-bottom: 1.5rem !important;
+}
+
+.how-kicker {
+    color: #5E8B7E;
+    font-size: 0.85rem;
+    letter-spacing: 1px;
+}
+
+.how-title {
+    color: #2F3A3A;
+    font-family: 'Space Grotesk', sans-serif;
+    font-size: clamp(2rem, 3vw, 2.5rem);
+    font-weight: 700;
+}
+
+.how-intro {
+    color: #626D6B;
+    font-size: 1rem;
+    line-height: 1.6;
+}
+
+/* Beige Process Panel */
+
+.how-steps {
+    background-color: var(--td-beige);
+    border-radius: 30px;
+    padding: 2rem 1.5rem;
+    margin: 0 !important;
+
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    align-items: center;
+    justify-content: space-between;
+
+    gap: 0;
+    width: 100%;
+}
+
+/* Three Equal Columns */
+
+.how-steps > div {
+    flex: 0 0 33.333333%;
+    width: 33.333333%;
+    max-width: 33.333333%;
+    min-width: 0;
+
+    display: flex;
+    align-items: center;
+    position: relative;
+
+    padding-left: 1rem;
+    padding-right: 1rem;
+}
+
+/* Individual Steps */
+
+.how-step {
+    display: flex;
+    align-items: center;
+    gap: 0.85rem;
+    width: 100%;
+    min-width: 0;
+    position: relative;
+}
+
+.step-number {
+    position: absolute;
+    top: -12px;
+    left: 0;
+
+    background-color: #B77B43;
+    color: #FFFFFF;
+
+    border-radius: 50%;
+    width: 30px;
+    height: 30px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    font-size: 0.8rem;
+    font-weight: 700;
+    z-index: 1;
+}
+
+.step-icon {
+    width: 68px;
+    height: 68px;
+    border-radius: 50%;
+
+    background-color: #FAF8F1;
+    color: var(--td-brown);
+
+    flex-shrink: 0;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    font-size: 1.9rem;
+}
+
+.step-content {
+    min-width: 0;
+}
+
+.step-title {
+    color: #263C38;
+    font-size: 1.1rem;
+    font-weight: 700;
+    margin-bottom: 0.3rem;
+}
+
+.step-description {
+    color: #354B45;
+    font-size: 0.85rem;
+    line-height: 1.4;
+}
+
+/* Arrows Between Steps */
+
+.how-steps > div:not(:last-child)::after {
+    content: "→";
+
+    color: var(--td-brown);
+    font-size: 2rem;
+    font-weight: 600;
+
+    position: absolute;
+    right: -0.5rem;
+    top: 50%;
+
+    transform: translate(50%, -50%);
+    z-index: 2;
+}
+
+/* NEED HELP BANNER */
+
+.volunteer-section {
+    background-color: #B5D9D5;
+    padding: 1.5rem 0;
+    min-height: 125px;
+}
+
+.volunteer-content {
+    width: 100%;
+}
+
+.volunteer-content .row {
+    gap: 0.5rem 0;
+}
+
+.help-icon {
+    width: 70px;
+    height: 70px;
+    border-radius: 50%;
+
+    background-color: #DCEEE8;
+    color: #245A4B;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    font-size: 2.5rem;
+}
+
+.volunteer-eyebrow {
+    color: #245A4B;
+    font-size: 0.8rem;
+    letter-spacing: 1px;
+}
+
+.volunteer-title {
+    color: #263C38;
+    font-family: 'Space Grotesk', sans-serif;
+    font-size: 1.35rem;
+    font-weight: 700;
+}
+
+.volunteer-description {
+    color: #354B45;
+    font-size: 0.95rem;
+    line-height: 1.5;
+}
+
+.volunteer-section .btn-primary {
+    background-color: #E6E3D1;
+    border-color: #E6E3D1;
+    color: #245A4B;
+
+    padding: 0.85rem 1.7rem;
+    border-radius: 8px;
+
+    font-weight: 700;
+    white-space: nowrap;
+}
+
+.volunteer-section .btn-primary:hover {
+    background-color: #FFFFFF;
+    border-color: #FFFFFF;
+    color: var(--td-dark);
+}
+
+/* FOOTER */
+
+.site-footer {
+    background-color: #EEF0E7;
+    padding: 1.5rem 0 !important;
+    margin-top: 0;
+}
+
+.footer-brand {
+    max-width: 350px;
+}
+
+.footer-logo-image {
+    height: 55px;
+    width: auto;
+    max-width: 180px;
+    object-fit: contain;
+    display: block;
+}
+
+.footer-notice {
+    color: #666666;
+    font-size: 0.85rem;
+    line-height: 1.5;
+}
+
+.footer-links h3 {
+    color: #263C38;
+    font-size: 0.95rem;
+    font-weight: 700;
+    margin-bottom: 0.7rem;
+}
+
+.footer-links-list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.7rem 1.3rem;
+}
+
+.footer-links-list a {
+    color: #526B60;
+    font-size: 0.85rem;
+    text-decoration: none;
+}
+
+.footer-links-list a:hover {
+    color: #164E50;
+    text-decoration: underline;
+}
+
+.footer-bottom {
+    border-top: 1px solid rgba(47, 93, 98, 0.15);
+    padding-top: 0.8rem;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1rem;
+}
+
+.footer-copyright {
+    color: #666666;
+    font-size: 0.8rem;
+}
+
+/* RESPONSIVE DESIGN */
+
+@media (max-width: 991px) {
+
+    .how-steps {
+        padding: 1.5rem 0.75rem;
+    }
+
+    .how-steps > div {
+        padding-left: 0.6rem;
+        padding-right: 0.6rem;
+    }
+
+    .how-step {
+        gap: 0.6rem;
+    }
+
+    .step-icon {
+        width: 55px;
+        height: 55px;
+        font-size: 1.5rem;
+    }
+
+    .step-title {
+        font-size: 1rem;
+    }
+
+    .step-description {
+        font-size: 0.78rem;
+    }
+
+    .how-steps > div:not(:last-child)::after {
+        font-size: 1.5rem;
+    }
+}
+
+@media (max-width: 767px) {
+
+    /* Navbar */
+
+    header.navbar {
+        padding-left: 1rem !important;
+        padding-right: 1rem !important;
+    }
+
+    .navbar-logo {
+        height: 48px;
+    }
+
+    .navbar-nav {
+        gap: 0;
+        padding-top: 0.5rem;
+    }
+
+    /* How It Works */
+
+    .how-it-works {
+        padding: 2rem 0 !important;
+    }
+
+    .how-steps {
+        flex-direction: column;
+        flex-wrap: nowrap;
+        align-items: stretch;
+
+        border-radius: 25px;
+        padding: 1.5rem;
+        gap: 1.5rem;
+    }
+
+    .how-steps > div {
+        flex: 0 0 100%;
+        width: 100%;
+        max-width: 100%;
+    }
+
+    .how-step {
+        padding: 0.5rem 0;
+    }
+
+    .how-steps > div:not(:last-child)::after {
+        display: none;
+    }
+
+    /* Need Help */
+
+    .volunteer-section {
+        padding: 1.5rem 0;
+    }
+
+    .help-icon {
+        width: 55px;
+        height: 55px;
+        font-size: 2rem;
+    }
+
+    .volunteer-section .btn-primary {
+        margin-top: 1rem;
+    }
+
+    /* Footer */
+
+    .footer-bottom {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 0.3rem;
+    }
+
+    .footer-links-list {
+        gap: 0.6rem 1rem;
+    }
+}
+
+
+/* =========================================
+   FIX AWKWARD SPACING - HOMEPAGE
+========================================= */
+
+/* HERO SECTION */
+
+.hero {
+    min-height: 520px;
+}
+
+.hero-image-container {
+    padding-top: 1rem;
+    padding-bottom: 1rem;
+}
+
+.hero-image {
+    height: 420px;
+}
+
+/* HOW IT WORKS */
+
+.how-it-works {
+    padding-top: 1.5rem !important;
+    padding-bottom: 1.5rem !important;
+}
+
+.how-it-works > .container {
+    padding-top: 0 !important;
+    padding-bottom: 0 !important;
+}
+
+.how-heading {
+    margin-bottom: 1.2rem !important;
+}
+
+/* COMMON IT ISSUES */
+
+.scam-types {
+    padding-top: 1.5rem !important;
+    padding-bottom: 1.5rem !important;
+}
+
+.scam-types > .container {
+    padding-top: 0 !important;
+    padding-bottom: 0 !important;
+}
+
+.scam-types-heading {
+    margin-bottom: 1.2rem !important;
+}
+
+/* REMOVE EXCESS SPACE BELOW ISSUES */
+
+.scam-types .text-center.mt-5 {
+    margin-top: 0 !important;
+}
+
+/* NEED HELP */
+
+.volunteer-section {
+    padding-top: 1.3rem;
+    padding-bottom: 1.3rem;
+    min-height: auto;
+}
+
+/* FOOTER */
+
+.site-footer {
+    padding-top: 1.2rem !important;
+    padding-bottom: 1.2rem !important;
+    margin-top: 0;
+}
+
+/* RESPONSIVE */
+
+@media (max-width: 767px) {
+    .hero {
+        min-height: auto;
+    }
+
+    .hero-image {
+        height: 300px;
+    }
+
+    .how-it-works,
+    .scam-types {
+        padding-top: 1.5rem !important;
+        padding-bottom: 1.5rem !important;
+    }
+}
+
