@@ -1,120 +1,282 @@
-<!DOCTYPE html>
+
+<!doctype html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>TechDesk - FAQ</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="theme-color" content="#f7f6f2">
+    <meta name="description" content="Find answers to common questions about TechDesk.">
+
+    <title>FAQ | TechDesk</title>
+
+    <!-- Bootstrap -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Bootstrap Icons -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="styles/index.css">
+    <link rel="stylesheet" href="styles/faq.css">
 </head>
+
 <body>
 
+    <!-- Navigation -->
+    <header class="navbar navbar-expand-md sticky-top bg-light px-3 px-lg-5">
+        <div class="container-fluid">
 
-    <section class="faq-header">
-        <h1>Frequently Asked Questions</h1>
-        <p>
-            Find quick answers to common questions about IT reporting
-            issues, tracking your reports, and our support process.
-        </p>
-    </section>
+            <a class="navbar-brand" href="index.html">
+                <img src="images/techdesk-logo.png"
+                     alt="TechDesk"
+                     class="navbar-logo">
+            </a>
 
+            <button class="navbar-toggler" type="button"
+                data-bs-toggle="collapse"
+                data-bs-target="#site-navigation"
+                aria-label="Toggle navigation">
 
-    <section class="faq-container">
+                <span class="navbar-toggler-icon"></span>
+            </button>
 
+            <nav class="collapse navbar-collapse justify-content-md-end"
+                 id="site-navigation">
 
-        <div class="faq-search">
-            <input type="text"
-                   placeholder="Search a question (e.g. How do I report an issue?)">
+                <div class="navbar-nav align-items-md-center">
+
+                    <a class="nav-link" href="index.html">Home</a>
+
+                    <a class="nav-link" href="report.html">Report an Issue</a>
+
+                    <a class="nav-link" href="track.html">Track a Report</a>
+
+                    <a class="nav-link active" href="faqs.html" aria-current="page">FAQ</a>
+
+                </div>
+            </nav>
+
         </div>
+    </header>
 
 
-        <div class="faq-content">
+    <main>
 
+        <!-- FAQ Banner -->
+        <section class="faq-hero">
 
-            <aside class="faq-categories">
-                <button>All Questions</button>
-                <button>Reporting an Issue</button>
-                <button>Tracking a Report</button>
-                <button>Account & Access</button>
-                <button>Others</button>
-            </aside>
+            <div class="container">
 
+                <p class="faq-breadcrumb">
+                    <a href="index.html">Home</a> &gt; FAQ
+                </p>
 
-            <div class="faq-questions">
+                <div class="faq-hero-content">
 
+                    <h1>Frequently Asked Questions</h1>
 
-                <h2>All Questions</h2>
-
-
-                <details>
-                    <summary>How do I report an IT issue?</summary>
                     <p>
-                        Go to the Report an Issue page, fill out the
-                        required information, and submit your report.
+                        Find quick answers to common questions about IT reporting
+                        issues, tracking your reports, and our support process.
                     </p>
-                </details>
 
-
-                <details>
-                    <summary>How can I track my report?</summary>
-                    <p>
-                        Enter your reference number on the Track a Report
-                        page to check your report status.
-                    </p>
-                </details>
-
-
-                <details>
-                    <summary>What IT issues can I report?</summary>
-                    <p>
-                        You can report campus Wi-Fi connection problems
-                        and laboratory hardware or software issues.
-                    </p>
-                </details>
-
-
-                <details>
-                    <summary>Who can use TechDesk?</summary>
-                    <p>
-                        Benilde students and employees can use TechDesk
-                        to report campus IT-related issues.
-                    </p>
-                </details>
-
-
-                <details>
-                    <summary>Can I upload screenshots as evidence?</summary>
-                    <p>
-                        Yes. You can upload supported screenshots or
-                        files to help explain the IT issue.
-                    </p>
-                </details>
-
-
-                <details>
-                    <summary>Who handles my report?</summary>
-                    <p>
-                        The Benilde IT Admin or IT Support Staff
-                        reviews and handles submitted reports.
-                    </p>
-                </details>
-
-
-                <details>
-                    <summary>How long does it take to resolve a report?</summary>
-                    <p>
-                        Resolution time depends on the type and severity
-                        of the IT issue.
-                    </p>
-                </details>
-
+                </div>
 
             </div>
 
+        </section>
+
+
+        <!-- FAQ Content -->
+        <section class="faq-section py-4">
+
+            <div class="container">
+
+                <!-- Search -->
+                <div class="faq-search mb-4">
+
+                    <div class="input-group">
+
+                        <span class="input-group-text">
+                            <i class="bi bi-search"></i>
+                        </span>
+
+                        <input type="search"
+                               class="form-control"
+                               placeholder="Search a question (e.g. 'How do I report an issue?')"
+                               aria-label="Search questions">
+
+                    </div>
+
+                </div>
+
+
+                <div class="row g-4">
+
+                    <!-- Categories -->
+                    <aside class="col-lg-4 col-md-4">
+
+                        <div class="faq-categories">
+
+                            <button class="faq-category active" type="button">
+                                <i class="bi bi-grid"></i>
+                                All Questions
+                            </button>
+
+                            <button class="faq-category" type="button">
+                                <i class="bi bi-file-earmark-text"></i>
+                                Reporting an Issue
+                            </button>
+
+                            <button class="faq-category" type="button">
+                                <i class="bi bi-bar-chart-line"></i>
+                                Tracking a Report
+                            </button>
+
+                            <button class="faq-category" type="button">
+                                <i class="bi bi-person"></i>
+                                Account &amp; Access
+                            </button>
+
+                            <button class="faq-category" type="button">
+                                <i class="bi bi-three-dots"></i>
+                                Others
+                            </button>
+
+                        </div>
+
+                    </aside>
+
+
+                    <!-- Questions -->
+                    <section class="col-lg-8 col-md-8">
+
+                        <div class="faq-questions">
+
+                            <h2>All Questions</h2>
+
+                            <div class="faq-item">
+                                <details open>
+                                    <summary>How do I report an IT issue?</summary>
+
+                                    <p>
+                                        Go to Report an Issue, fill out the required
+                                        details, add supporting evidence if available,
+                                        confirm the information, and click Submit Report.
+                                    </p>
+                                </details>
+                            </div>
+
+
+                            <div class="faq-item">
+                                <details>
+                                    <summary>How can I track the status of my report?</summary>
+
+                                    <p>
+                                        Go to Track a Report and enter your reference
+                                        number to check the latest status of your
+                                        submitted report.
+                                    </p>
+                                </details>
+                            </div>
+
+
+                            <div class="faq-item">
+                                <details>
+                                    <summary>How long does it take to resolve a report?</summary>
+
+                                    <p>
+                                        The time needed depends on the type and severity
+                                        of the reported IT issue. You can check your
+                                        report status through the tracking page.
+                                    </p>
+                                </details>
+                            </div>
+
+
+                            <div class="faq-item">
+                                <details>
+                                    <summary>Can I edit or cancel my report?</summary>
+
+                                    <p>
+                                        If you need to update or cancel a submitted
+                                        report, contact the IT support staff for
+                                        assistance.
+                                    </p>
+                                </details>
+                            </div>
+
+
+                            <div class="faq-item">
+                                <details>
+                                    <summary>What IT issues can I report?</summary>
+
+                                    <p>
+                                        You can report campus Wi-Fi connection problems,
+                                        laboratory hardware or software issues, and
+                                        login or account-related problems.
+                                    </p>
+                                </details>
+                            </div>
+
+
+                            <div class="faq-item">
+                                <details>
+                                    <summary>Who can use TechDesk?</summary>
+
+                                    <p>
+                                        Benilde students and employees can use TechDesk
+                                        to report campus IT-related issues.
+                                    </p>
+                                </details>
+                            </div>
+
+
+                            <div class="faq-item">
+                                <details>
+                                    <summary>Who handles my submitted report?</summary>
+
+                                    <p>
+                                        The IT Admin or IT Support Staff reviews and
+                                        handles submitted campus IT reports.
+                                    </p>
+                                </details>
+                            </div>
+
+                        </div>
+
+                    </section>
+
+                </div>
+
+            </div>
+
+        </section>
+
+    </main>
+
+
+    <!-- Footer -->
+    <footer class="site-footer py-4">
+
+        <div class="container d-flex flex-column flex-sm-row justify-content-between align-items-sm-center gap-2">
+
+            <p class="footer-copyright mb-0">TechDesk</p>
+
+            <p class="footer-notice mb-0">Report • Track • Resolve</p>
 
         </div>
 
+    </footer>
 
-    </section>
 
+    <!-- Bootstrap JavaScript -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
 
 </body>
 </html>
