@@ -1,169 +1,1190 @@
 <!doctype html>
 <html lang="en">
-  <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="theme-color" content="#f7f7f2">
-    <meta name="description" content="Report a suspicious link, message, or online incident to the Suri community.">
-    <title>Submit a Report | TechDesk</title>
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="theme-color" content="#DCE2C6" />
+  <meta name="description" content="Report an IT concern to TechDesk and monitor its resolution progress." />
+  <title>Report an IT Issue | TechDesk</title>
 
-    <!-- Shared Bootstrap styles keep this page consistent with the homepage. -->
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="styles/index.css">
-    <link rel="stylesheet" href="styles/menu.css">
-    <link rel="stylesheet" href="styles/report.css">
-    <link rel="stylesheet" href="styles/footer.css">
-    <script src="scripts/hero.js" defer></script>
-    <script src="scripts/menu.js" defer></script>
-    <script src="scripts/report.js" defer></script>
-  </head>
-  <body>
-    <header class="navbar navbar-expand-md sticky-top bg-light px-3 px-lg-5">
-      <div class="container-fluid">
-        <a class="navbar-brand d-flex align-items-center gap-2 mb-0" href="index.html#home" aria-label="Suri home">
-          <span class="brand-mark" aria-hidden="true">s</span>
-          <span class="brand-name fs-4 fw-bold">suri<span class="brand-period">.</span></span>
-        </a>
+  <link rel="icon" type="image/png" href="images/techdesk-logo.png" />
 
-        <button class="navbar-toggler" type="button" aria-label="Open navigation menu" aria-expanded="false" aria-controls="site-navigation">
-          <span class="navbar-toggler-icon" aria-hidden="true"></span>
-        </button>
+  <!-- Bootstrap & Bootstrap Icons (consistent with index.html and faqs.html) -->
+  <link
+    href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
+    rel="stylesheet"
+    integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH"
+    crossorigin="anonymous"
+  />
+  <link
+    rel="stylesheet"
+    href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css"
+  />
 
-        <nav class="collapse navbar-collapse justify-content-md-end" id="site-navigation" aria-label="Main navigation">
-          <div class="navbar-nav align-items-md-center gap-md-5">
-            <a class="nav-link" href="index.html#home">Home</a>
-            <a class="nav-link" href="index.html#how-it-works">About</a>
-            <a class="nav-link" href="index.html#volunteer">Volunteer</a>
-            <a class="btn btn-outline-dark ms-md-2 active" href="report.html" aria-current="page">Report</a>
-          </div>
-        </nav>
-      </div>
-    </header>
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Space+Grotesk:wght@600;700&display=swap"
+    rel="stylesheet"
+  />
 
-    <main>
-      <section class="report-hero d-flex align-items-center" aria-labelledby="report-title">
-        <div class="container">
-          <p class="report-eyebrow text-uppercase fw-bold mb-2">Community report</p>
-          <h1 class="report-hero-title mb-2" id="report-title">Report something suspicious</h1>
-          <p class="report-hero-copy mb-0">Share the details so the community can review what happened.</p>
+  <!-- Repository Base Stylesheet -->
+  <link rel="stylesheet" href="styles/index.css" />
+
+  <style>
+    :root {
+      --td-page-bg: #DCE2C6;
+      --td-nav-footer-bg: #FFFFFF;
+      --td-title-brown: #856B3F;
+      --td-text-dark: #1E1E1E;
+      --td-teal: #56AAB0;
+      --td-teal-hover: #46959B;
+      --td-dark-teal: #14474B;
+      --td-badge-amber: #B47A44;
+      --td-header-pill: #E3EBC4;
+      --td-card-1-bg: #D5D0AF;
+      --td-card-2-bg: #C4D8C2;
+      --td-card-3-bg: #A6CBBD;
+      --td-input-bg: #F8F7F2;
+      --td-error-banner-bg: #C0C2A9;
+      --td-error-crimson: #7A0000;
+      --td-asterisk-red: #D32F2F;
+    }
+
+    *,
+    *::before,
+    *::after {
+      box-sizing: border-box;
+    }
+
+    /* Override styles/index.css (#F7F6F2) to match the presentation slide canvas */
+    body.td-report-body {
+      margin: 0;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      background-color: var(--td-page-bg) !important;
+      color: var(--td-text-dark) !important;
+      font-family: "DM Sans", -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+    }
+
+    /* ================= NAVBAR ================= */
+    .td-navbar {
+      background-color: var(--td-nav-footer-bg) !important;
+      min-height: 70px;
+      padding: 0.45rem 0;
+      border-bottom: 1px solid rgba(20, 71, 75, 0.08);
+    }
+
+    .td-navbar-logo {
+      height: 46px;
+      width: auto;
+      object-fit: contain;
+      display: block;
+    }
+
+    .td-nav-list {
+      gap: 1.5rem;
+    }
+
+    .td-nav-list .nav-link {
+      color: var(--td-text-dark);
+      font-size: 0.96rem;
+      font-weight: 500;
+      padding: 0.4rem 0.15rem;
+      position: relative;
+      transition: color 0.15s ease;
+    }
+
+    .td-nav-list .nav-link:hover {
+      color: var(--td-teal);
+    }
+
+    .td-nav-list .nav-link.active {
+      color: var(--td-teal) !important;
+      font-weight: 600;
+    }
+
+    .td-nav-list .nav-link.active::after {
+      content: "";
+      position: absolute;
+      left: 0;
+      right: 0;
+      bottom: -2px;
+      height: 2px;
+      background-color: var(--td-teal);
+      border-radius: 2px;
+    }
+
+    /* ================= MAIN PAGE WRAPPER ================= */
+    .td-main {
+      flex: 1;
+      background-color: var(--td-page-bg);
+      padding: 1.35rem 0 2.75rem;
+    }
+
+    .td-container {
+      max-width: 1120px;
+      margin: 0 auto;
+      padding: 0 1.25rem;
+    }
+
+    /* Breadcrumb & Header */
+    .td-breadcrumb {
+      font-size: 0.82rem;
+      font-weight: 500;
+      color: var(--td-text-dark);
+      margin-bottom: 0.2rem;
+      display: flex;
+      align-items: center;
+      gap: 0.45rem;
+    }
+
+    .td-breadcrumb a {
+      color: var(--td-text-dark);
+      text-decoration: none;
+    }
+
+    .td-breadcrumb a:hover {
+      text-decoration: underline;
+    }
+
+    .td-page-title {
+      font-family: "Space Grotesk", "DM Sans", sans-serif;
+      font-size: clamp(1.95rem, 3.6vw, 2.75rem);
+      font-weight: 700;
+      color: var(--td-title-brown);
+      line-height: 1.12;
+      margin: 0 0 0.35rem;
+      letter-spacing: -0.02em;
+    }
+
+    .td-page-subtitle {
+      font-size: 0.93rem;
+      color: var(--td-text-dark);
+      margin: 0 0 1.2rem;
+    }
+
+    /* ================= SECTION CARDS ================= */
+    .td-section-card {
+      border-radius: 14px;
+      padding: 0.95rem 1.25rem 1.2rem;
+      margin-bottom: 1.05rem;
+    }
+
+    .td-section-card--reporter {
+      background-color: var(--td-card-1-bg);
+    }
+
+    .td-section-card--issue {
+      background-color: var(--td-card-2-bg);
+    }
+
+    .td-section-card--evidence {
+      background-color: var(--td-card-3-bg);
+    }
+
+    /* Inner Light Lime-Cream Header Pill */
+    .td-section-bar {
+      background-color: var(--td-header-pill);
+      border-radius: 10px;
+      min-height: 36px;
+      padding: 0.3rem 1rem 0.3rem 0.45rem;
+      display: flex;
+      align-items: center;
+      gap: 0.65rem;
+      margin-bottom: 0.85rem;
+    }
+
+    .td-step-circle {
+      width: 30px;
+      height: 30px;
+      border-radius: 50%;
+      background-color: var(--td-badge-amber);
+      color: #FFFFFF;
+      font-weight: 700;
+      font-size: 0.92rem;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+    }
+
+    .td-section-heading {
+      margin: 0;
+      font-size: 1rem;
+      font-weight: 700;
+      color: #1A1A1A;
+    }
+
+    .td-section-heading span {
+      font-weight: 400;
+    }
+
+    /* ================= FORM GRIDS ================= */
+    .td-reporter-grid {
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: 0.85rem 1rem;
+      padding: 0 0.45rem;
+    }
+
+    .td-issue-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr 1.35fr;
+      gap: 0.85rem 1rem;
+      padding: 0 0.45rem;
+      align-items: stretch;
+    }
+
+    .td-issue-col {
+      display: flex;
+      flex-direction: column;
+      gap: 0.85rem;
+    }
+
+    .td-field-group {
+      display: flex;
+      flex-direction: column;
+      gap: 0.3rem;
+    }
+
+    .td-field-group--full-height {
+      height: 100%;
+    }
+
+    .td-label {
+      font-size: 0.9rem;
+      font-weight: 600;
+      color: var(--td-text-dark);
+      margin: 0;
+    }
+
+    .td-req {
+      color: var(--td-asterisk-red);
+      margin-left: 1px;
+    }
+
+    /* Input Wrapper with Left Icon */
+    .td-input-wrap {
+      position: relative;
+      display: flex;
+      align-items: center;
+      background-color: var(--td-input-bg);
+      border-radius: 8px;
+      border: 1.5px solid transparent;
+      transition: border-color 0.15s ease, box-shadow 0.15s ease;
+    }
+
+    .td-input-wrap:focus-within {
+      border-color: var(--td-teal);
+      box-shadow: 0 0 0 3px rgba(86, 170, 176, 0.22);
+    }
+
+    .td-input-wrap.is-invalid {
+      border-color: var(--td-error-crimson);
+      background-color: #FFF6F6;
+    }
+
+    .td-input-icon {
+      position: absolute;
+      left: 0.8rem;
+      color: #6B7068;
+      font-size: 0.98rem;
+      pointer-events: none;
+      display: inline-flex;
+      align-items: center;
+    }
+
+    .td-control {
+      width: 100%;
+      min-height: 40px;
+      padding: 0.5rem 0.85rem 0.5rem 2.3rem;
+      background: transparent;
+      border: none;
+      border-radius: 8px;
+      font-family: inherit;
+      font-size: 0.88rem;
+      color: var(--td-text-dark);
+    }
+
+    .td-control::placeholder {
+      color: #7A7E78;
+    }
+
+    .td-control:focus {
+      outline: none;
+    }
+
+    select.td-control {
+      appearance: none;
+      padding-right: 2.2rem;
+      cursor: pointer;
+    }
+
+    select.td-control:invalid {
+      color: #7A7E78;
+    }
+
+    select.td-control option {
+      color: var(--td-text-dark);
+    }
+
+    .td-select-chevron {
+      position: absolute;
+      right: 0.8rem;
+      color: #333834;
+      font-size: 0.9rem;
+      pointer-events: none;
+    }
+
+    /* Textarea Card Box */
+    .td-textarea-wrap {
+      position: relative;
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      background-color: var(--td-input-bg);
+      border-radius: 10px;
+      border: 1.5px solid transparent;
+      padding: 0.65rem 0.85rem 1.55rem 2.35rem;
+      min-height: 118px;
+      transition: border-color 0.15s ease, box-shadow 0.15s ease;
+    }
+
+    .td-textarea-wrap:focus-within {
+      border-color: var(--td-teal);
+      box-shadow: 0 0 0 3px rgba(86, 170, 176, 0.22);
+    }
+
+    .td-textarea-wrap.is-invalid {
+      border-color: var(--td-error-crimson);
+      background-color: #FFF6F6;
+    }
+
+    .td-textarea-icon {
+      position: absolute;
+      top: 0.72rem;
+      left: 0.8rem;
+      color: #6B7068;
+      font-size: 1.15rem;
+      pointer-events: none;
+    }
+
+    .td-textarea {
+      width: 100%;
+      flex: 1;
+      border: none;
+      background: transparent;
+      resize: vertical;
+      font-family: inherit;
+      font-size: 0.86rem;
+      line-height: 1.45;
+      color: var(--td-text-dark);
+      padding: 0;
+    }
+
+    .td-textarea::placeholder {
+      color: #6E736D;
+    }
+
+    .td-textarea:focus {
+      outline: none;
+    }
+
+    .td-char-count {
+      position: absolute;
+      right: 0.85rem;
+      bottom: 0.45rem;
+      font-size: 0.78rem;
+      color: #6E736D;
+      pointer-events: none;
+    }
+
+    /* ================= EVIDENCE DROPZONE ================= */
+    .td-evidence-inner {
+      padding: 0 0.45rem;
+    }
+
+    .td-dropzone {
+      background-color: var(--td-input-bg);
+      border: 1.5px dashed #4E5852;
+      border-radius: 10px;
+      padding: 0.85rem 1rem;
+      text-align: center;
+      transition: background-color 0.15s ease, border-color 0.15s ease;
+    }
+
+    .td-dropzone.is-dragover {
+      background-color: #EEF5F2;
+      border-color: var(--td-dark-teal);
+    }
+
+    .td-dropzone-title {
+      margin: 0;
+      font-size: 0.88rem;
+      font-weight: 500;
+      color: #555B56;
+    }
+
+    .td-dropzone-sub {
+      margin: 0.1rem 0 0.45rem;
+      font-size: 0.76rem;
+      color: #6E736D;
+    }
+
+    .td-choose-file-btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.45rem;
+      background: transparent;
+      border: none;
+      color: #3D433E;
+      font-size: 0.88rem;
+      font-weight: 700;
+      padding: 0.35rem 0.75rem;
+      border-radius: 6px;
+      cursor: pointer;
+      transition: background-color 0.15s ease, color 0.15s ease;
+    }
+
+    .td-choose-file-btn:hover {
+      background-color: rgba(86, 170, 176, 0.16);
+      color: var(--td-dark-teal);
+    }
+
+    .td-file-status {
+      display: none;
+      margin-top: 0.55rem;
+      padding-top: 0.55rem;
+      border-top: 1px dashed #B5BEB8;
+      align-items: center;
+      justify-content: center;
+      gap: 0.75rem;
+      flex-wrap: wrap;
+    }
+
+    .td-file-status.visible {
+      display: flex;
+    }
+
+    .td-file-thumb {
+      width: 38px;
+      height: 38px;
+      object-fit: cover;
+      border-radius: 6px;
+      border: 1px solid #C5CEC8;
+    }
+
+    .td-file-label {
+      font-size: 0.83rem;
+      font-weight: 600;
+      color: var(--td-text-dark);
+    }
+
+    .td-file-remove {
+      background: none;
+      border: none;
+      color: var(--td-error-crimson);
+      font-size: 0.8rem;
+      font-weight: 700;
+      cursor: pointer;
+      text-decoration: underline;
+    }
+
+    /* ================= VALIDATION / ERROR BANNER ================= */
+    .td-validation-banner {
+      display: none;
+      align-items: center;
+      gap: 1rem;
+      background-color: var(--td-error-banner-bg);
+      border-radius: 26px;
+      padding: 0.85rem 1.35rem;
+      margin: 0.25rem 0 1.05rem;
+    }
+
+    .td-validation-banner.visible {
+      display: flex;
+    }
+
+    .td-error-circle {
+      width: 46px;
+      height: 46px;
+      border-radius: 50%;
+      background-color: var(--td-error-crimson);
+      color: #FFFFFF;
+      font-size: 1.65rem;
+      font-weight: 800;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+      line-height: 1;
+    }
+
+    .td-error-heading {
+      margin: 0 0 0.1rem;
+      font-size: 0.98rem;
+      font-weight: 700;
+      color: var(--td-error-crimson);
+    }
+
+    .td-error-text {
+      margin: 0;
+      font-size: 0.88rem;
+      color: var(--td-text-dark);
+    }
+
+    /* ================= CONFIRMATION & SUBMIT ROW ================= */
+    .td-action-row {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 1rem;
+      padding-top: 0.15rem;
+    }
+
+    .td-confirm-label {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.75rem;
+      cursor: pointer;
+      font-size: 0.88rem;
+      color: var(--td-text-dark);
+      user-select: none;
+    }
+
+    .td-confirm-checkbox {
+      appearance: none;
+      -webkit-appearance: none;
+      width: 26px;
+      height: 26px;
+      background-color: var(--td-input-bg);
+      border: 1.5px dashed #3E423E;
+      border-radius: 3px;
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+      transition: background-color 0.15s ease, border-color 0.15s ease;
+    }
+
+    .td-confirm-checkbox:checked {
+      background-color: var(--td-teal);
+      border-style: solid;
+      border-color: var(--td-dark-teal);
+    }
+
+    .td-confirm-checkbox:checked::after {
+      content: "✓";
+      color: #FFFFFF;
+      font-size: 1rem;
+      font-weight: 700;
+    }
+
+    .td-submit-btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.5rem;
+      background-color: var(--td-teal);
+      color: #FFFFFF;
+      border: none;
+      border-radius: 10px;
+      padding: 0.65rem 1.75rem;
+      min-height: 44px;
+      font-size: 0.96rem;
+      font-weight: 700;
+      cursor: pointer;
+      white-space: nowrap;
+      transition: background-color 0.15s ease, transform 0.1s ease;
+    }
+
+    .td-submit-btn:hover {
+      background-color: var(--td-teal-hover);
+    }
+
+    .td-submit-btn:active {
+      transform: translateY(1px);
+    }
+
+    /* Success Alert */
+    .td-success-banner {
+      display: none;
+      margin-top: 1.15rem;
+      background-color: var(--td-header-pill);
+      border: 1.5px solid var(--td-dark-teal);
+      border-radius: 14px;
+      padding: 1rem 1.25rem;
+      color: var(--td-dark-teal);
+    }
+
+    .td-success-banner.visible {
+      display: block;
+    }
+
+    .td-ticket-code {
+      display: inline-block;
+      background-color: #FFFFFF;
+      border: 1px solid var(--td-teal);
+      border-radius: 6px;
+      padding: 0.15rem 0.55rem;
+      font-weight: 700;
+      color: var(--td-dark-teal);
+    }
+
+    /* ================= FOOTER ================= */
+    .td-footer {
+      background-color: var(--td-nav-footer-bg) !important;
+      padding: 0.85rem 0;
+      border-top: 1px solid rgba(20, 71, 75, 0.08);
+    }
+
+    .td-footer-inner {
+      display: flex;
+      align-items: center;
+      gap: 1.15rem;
+      flex-wrap: wrap;
+    }
+
+    .td-footer-logo {
+      height: 36px;
+      width: auto;
+      object-fit: contain;
+      display: block;
+    }
+
+    .td-footer-tagline {
+      margin: 0;
+      font-size: 0.86rem;
+      color: #4E5450;
+      font-weight: 500;
+    }
+
+    /* ================= RESPONSIVE / MOBILE OPTIMIZATION ================= */
+    @media (max-width: 991px) {
+      .td-reporter-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+
+      .td-issue-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+
+      .td-issue-col--desc {
+        grid-column: 1 / -1;
+      }
+    }
+
+    @media (max-width: 767px) {
+      .td-nav-list {
+        gap: 0.25rem;
+        padding-top: 0.65rem;
+      }
+
+      .td-nav-list .nav-link.active::after {
+        display: none;
+      }
+
+      .td-main {
+        padding: 1rem 0 2rem;
+      }
+
+      .td-container {
+        padding: 0 0.9rem;
+      }
+
+      .td-section-card {
+        padding: 0.85rem 0.85rem 1rem;
+      }
+
+      .td-reporter-grid,
+      .td-issue-grid {
+        grid-template-columns: 1fr;
+        padding: 0;
+      }
+
+      .td-evidence-inner {
+        padding: 0;
+      }
+
+      /* Prevent iOS Safari zoom on focus */
+      .td-control,
+      .td-textarea {
+        font-size: 16px;
+      }
+
+      .td-validation-banner {
+        border-radius: 16px;
+        padding: 0.85rem 1rem;
+      }
+
+      .td-action-row {
+        flex-direction: column;
+        align-items: stretch;
+      }
+
+      .td-submit-btn {
+        width: 100%;
+      }
+    }
+  </style>
+</head>
+<body class="td-report-body">
+  <!-- NAVBAR -->
+  <header class="navbar navbar-expand-md sticky-top td-navbar px-3 px-lg-5">
+    <div class="container-fluid td-container">
+      <a class="navbar-brand d-flex align-items-center mb-0" href="index.html" aria-label="TechDesk Home">
+        <img src="images/techdesk-logo.png" alt="TechDesk Logo" class="td-navbar-logo" />
+      </a>
+
+      <button
+        class="navbar-toggler"
+        type="button"
+        data-bs-toggle="collapse"
+        data-bs-target="#techdeskNavbar"
+        aria-controls="techdeskNavbar"
+        aria-expanded="false"
+        aria-label="Toggle navigation"
+      >
+        <span class="navbar-toggler-icon"></span>
+      </button>
+
+      <nav class="collapse navbar-collapse justify-content-md-end" id="techdeskNavbar" aria-label="Main navigation">
+        <div class="navbar-nav align-items-md-center td-nav-list">
+          <a class="nav-link" href="index.html">Home</a>
+          <a class="nav-link active" href="report.html" aria-current="page">Report an Issue</a>
+          <a class="nav-link" href="track.html">Track a Report</a>
+          <a class="nav-link" href="faqs.html">FAQ</a>
+          <a class="nav-link" href="index.html#contact">Contact</a>
         </div>
-      </section>
+      </nav>
+    </div>
+  </header>
 
-      <section class="report-form-section py-5" aria-labelledby="report-form-title">
-        <div class="container">
-          <div class="report-form-intro mb-4">
-            <h2 class="report-form-title mb-2" id="report-form-title">Tell us what happened</h2>
-            <p class="text-secondary mb-0">Fields marked with <span aria-hidden="true">*</span> are required.</p>
+  <!-- MAIN CONTENT -->
+  <main class="td-main">
+    <div class="td-container">
+      <nav class="td-breadcrumb" aria-label="Breadcrumb">
+        <a href="index.html">HOME</a>
+        <span aria-hidden="true">&gt;</span>
+        <span>Report an Issue</span>
+      </nav>
+
+      <h1 class="td-page-title">Report an IT Issue</h1>
+      <p class="td-page-subtitle">
+        Fill out the form below to report your IT concern. Provide accurate details so our team can assist you faster.
+      </p>
+
+      <form id="tdReportForm" novalidate>
+        <!-- SECTION 1: REPORTER INFORMATION -->
+        <section class="td-section-card td-section-card--reporter" aria-labelledby="secReporterHeading">
+          <div class="td-section-bar">
+            <span class="td-step-circle" aria-hidden="true">1</span>
+            <h2 class="td-section-heading" id="secReporterHeading">Reporter Information</h2>
           </div>
 
-          <form class="report-form bg-white" id="report-form" novalidate>
-              <div class="row g-4">
-                  <div class="col-12">
-                      <label class="form-label" for="report-category">Issue Details <span aria-hidden="true">*</span></label>
-                      <select class="form-select" id="report-category" name="category" required>
-                          <option value="" selected disabled>Select a category</option>
-                          <option value="phishing">WiFi Connection Issue</option>
-                          <option value="qrishing">Hardware Issue</option>
-                          <option value="smishing">Software Issue</option>
-                          <option value="vishing">Login/Account Issue</option>
-                      </select>
-                      <div class="invalid-feedback">Choose the category that best fits, or select Other or unsure.</div>
-                  </div>
-
-                  <div class="col-12">
-                      <label class="form-label" for="incident-description">Incident description <span aria-hidden="true">*</span></label>
-                      <textarea class="form-control" id="incident-description" name="description" rows="4" placeholder="What happened? Provide detailed information about the issue." required></textarea>
-                      <div class="form-text">Do not include passwords or one-time codes.</div>
-                      <div class="invalid-feedback">Provide detailed information about the issue before submitting.</div>
-                  </div>
-
-                  <div class="col-12">
-                      <label class="form-label" for="report-screenshot">Screenshot attachment</label>
-                      <input class="form-control" id="report-screenshot" name="screenshot" type="file" accept="image/png,image/jpeg,image/webp">
-                      <div class="form-text">Optional. PNG, JPG, or WebP images up to 10 MB.</div>
-                      <div class="invalid-feedback">Choose a supported image no larger than 10 MB.</div>
-                  </div>
-
-                  <div class="col-md-6">
-                      <label class="form-label" for="sender">From (sender) <span aria-hidden="true">*</span></label>
-                      <input class="form-control" id="sender" name="sender" type="text" placeholder="Phone number or name, e.g. GLOBE, SMART, NCAP" required>
-                      <div class="invalid-feedback">Enter the sender's name or number.</div>
-                  </div>
-                  <label class="form-label" for="report-category">Issue Details <span aria-hidden="true">*</span></label>
-                  <select class="form-select" id="report-category" name="category" required>
-                      <option value="" selected disabled>Urgency/Impact Level</option>
-                      <option value="phishing">Least Concern</option>
-                      <option value="qrishing">Needs Attention</option>
-                      <option value="smishing">High Impact</option>
-                      <option value="vishing">Needs Immediate Attention</option>
-                  </select>
-                  <div class="invalid-feedback">Choose the category that best fits, or select Other or unsure.</div>
-              </div>
-
-              <div class="col-12">
-                <label class="form-label" for="email-address">Email address <span aria-hidden="true">*</span></label>
-                <input class="form-control" id="email-address" name="email" type="email" autocomplete="email" placeholder="juan.delacruz@benilde.edu.ph" required>
-                <div class="invalid-feedback">Enter a valid Benilde email address.</div>
-              </div>
-
-              <div class="col-12">
-                <fieldset class="location-fieldset">
-                  <legend class="form-label">Location <span aria-hidden="true">*</span></legend>
-                  <div class="btn-group location-mode mb-3" role="group" aria-label="Choose how to enter the location">
-                    <input class="btn-check" id="location-mode-text" name="location-mode" type="radio" value="text" checked>
-                    <label class="btn btn-outline-secondary" for="location-mode-text">Describe an area</label>
-                    <input class="btn-check" id="location-mode-map" name="location-mode" type="radio" value="map">
-                    <label class="btn btn-outline-secondary" for="location-mode-map">Google Maps pin</label>
-                  </div>
-
-                  <div id="location-text-panel">
-                    <label class="visually-hidden" for="location-text">Area, city, or nearby landmark</label>
-                    <input class="form-control" id="location-text" name="location-text" type="text" placeholder="Area, city, or nearby landmark" required>
-                    <div class="invalid-feedback">Enter an approximate location.</div>
-                  </div>
-
-                  <div id="location-map-panel" hidden>
-                    <p class="form-text mt-0">Drop a pin in Google Maps, then paste its link or coordinates here.</p>
-                    <a class="btn btn-outline-secondary btn-sm mb-3" href="https://www.google.com/maps" target="_blank" rel="noopener noreferrer">Open Google Maps <span aria-hidden="true">↗</span></a>
-                    <label class="visually-hidden" for="location-map">Google Maps link or latitude and longitude</label>
-                    <input class="form-control" id="location-map" name="location-map" type="text" placeholder="Google Maps link or 14.5995, 120.9842" disabled>
-                    <div class="invalid-feedback">Enter a Google Maps link or valid coordinates.</div>
-                  </div>
-
-                  <div class="form-text mt-2">A location may help identify an area where an SMS blaster could be operating. Share only an approximate location if you prefer.</div>
-                </fieldset>
-              </div>
-
-              <div class="col-12">
-                <fieldset class="privacy-agreement">
-                  <legend class="form-label">Before you submit</legend>
-                  <div class="form-check">
-                    <input class="form-check-input" id="privacy-consent" name="privacy-consent" type="checkbox" required>
-                    <label class="form-check-label" for="privacy-consent">I agree to provide this information for review. I understand this demo saves report details in this browser only, does not send them to an agency, and does not retain uploaded image files. <span aria-hidden="true">*</span></label>
-                    <div class="invalid-feedback">Consent is required to continue.</div>
-                  </div>
-                </fieldset>
-              </div>
-
-              <div class="col-12 d-flex flex-column flex-sm-row align-items-sm-center gap-3">
-                <button class="btn btn-primary report-submit" type="submit">Submit report <span aria-hidden="true">→</span></button>
-                <p class="report-form-status small mb-0" id="report-form-status" role="status" aria-live="polite" hidden></p>
+          <div class="td-reporter-grid">
+            <div class="td-field-group">
+              <label class="td-label" for="fullName">Full Name<span class="td-req">*</span></label>
+              <div class="td-input-wrap" id="wrap-fullName">
+                <span class="td-input-icon" aria-hidden="true"><i class="bi bi-person"></i></span>
+                <input
+                  type="text"
+                  id="fullName"
+                  name="fullName"
+                  class="td-control"
+                  placeholder="Enter your full name"
+                  autocomplete="name"
+                  required
+                />
               </div>
             </div>
-          </form>
-        </div>
-      </section>
-    </main>
 
-    <footer class="site-footer py-4">
-      <div class="container d-flex flex-column flex-sm-row justify-content-between align-items-sm-center gap-2">
-        <p class="footer-copyright mb-0">TechDesk</p>
-        <p class="footer-notice mb-0">Report • Track • Resolve</p>
-      </div>
-    </footer>
-  </body>
+            <div class="td-field-group">
+              <label class="td-label" for="idNumber">Student/Employee ID<span class="td-req">*</span></label>
+              <div class="td-input-wrap" id="wrap-idNumber">
+                <span class="td-input-icon" aria-hidden="true"><i class="bi bi-person-vcard"></i></span>
+                <input
+                  type="text"
+                  id="idNumber"
+                  name="idNumber"
+                  class="td-control"
+                  placeholder="Enter your ID number"
+                  required
+                />
+              </div>
+            </div>
+
+            <div class="td-field-group">
+              <label class="td-label" for="email">Email<span class="td-req">*</span></label>
+              <div class="td-input-wrap" id="wrap-email">
+                <span class="td-input-icon" aria-hidden="true"><i class="bi bi-envelope"></i></span>
+                <input
+                  type="email"
+                  id="email"
+                  name="email"
+                  class="td-control"
+                  placeholder="Enter your email address"
+                  autocomplete="email"
+                  required
+                />
+              </div>
+            </div>
+
+            <div class="td-field-group">
+              <label class="td-label" for="contactNumber">Contact Number</label>
+              <div class="td-input-wrap" id="wrap-contactNumber">
+                <span class="td-input-icon" aria-hidden="true"><i class="bi bi-telephone"></i></span>
+                <input
+                  type="tel"
+                  id="contactNumber"
+                  name="contactNumber"
+                  class="td-control"
+                  placeholder="Enter your contact number"
+                  autocomplete="tel"
+                />
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- SECTION 2: ISSUE DETAILS -->
+        <section class="td-section-card td-section-card--issue" aria-labelledby="secIssueHeading">
+          <div class="td-section-bar">
+            <span class="td-step-circle" aria-hidden="true">2</span>
+            <h2 class="td-section-heading" id="secIssueHeading">Issue Details</h2>
+          </div>
+
+          <div class="td-issue-grid">
+            <!-- Column 1 -->
+            <div class="td-issue-col">
+              <div class="td-field-group">
+                <label class="td-label" for="category">Category<span class="td-req">*</span></label>
+                <div class="td-input-wrap" id="wrap-category">
+                  <span class="td-input-icon" aria-hidden="true"><i class="bi bi-list-ul"></i></span>
+                  <select id="category" name="category" class="td-control" required>
+                    <option value="" selected disabled>Select a category</option>
+                    <option value="Wi-Fi Connection Issues">Wi-Fi Connection Issues</option>
+                    <option value="Lab Unit Hardware Issues">Lab Unit Hardware Issues</option>
+                    <option value="Software Issues">Software Issues</option>
+                    <option value="Login / Account Issues">Login / Account Issues</option>
+                    <option value="Projector & AV Hardware">Projector &amp; AV Hardware</option>
+                    <option value="Other">Other</option>
+                  </select>
+                  <span class="td-select-chevron" aria-hidden="true"><i class="bi bi-chevron-down"></i></span>
+                </div>
+              </div>
+
+              <div class="td-field-group">
+                <label class="td-label" for="location">Building and Room No.<span class="td-req">*</span></label>
+                <div class="td-input-wrap" id="wrap-location">
+                  <span class="td-input-icon" aria-hidden="true"><i class="bi bi-geo-alt-fill"></i></span>
+                  <input
+                    type="text"
+                    id="location"
+                    name="location"
+                    class="td-control"
+                    placeholder="Enter building and room number"
+                    required
+                  />
+                </div>
+              </div>
+            </div>
+
+            <!-- Column 2 -->
+            <div class="td-issue-col">
+              <div class="td-field-group">
+                <label class="td-label" for="urgency">Urgency/Impact Level<span class="td-req">*</span></label>
+                <div class="td-input-wrap" id="wrap-urgency">
+                  <span class="td-input-icon" aria-hidden="true"><i class="bi bi-reception-3"></i></span>
+                  <select id="urgency" name="urgency" class="td-control" required>
+                    <option value="" selected disabled>Select urgency level</option>
+                    <option value="Least Concern">Least Concern</option>
+                    <option value="Needs Attention">Needs Attention</option>
+                    <option value="High Impact">High Impact</option>
+                    <option value="Needs Immediate Attention">Needs Immediate Attention</option>
+                  </select>
+                  <span class="td-select-chevron" aria-hidden="true"><i class="bi bi-chevron-down"></i></span>
+                </div>
+              </div>
+
+              <div class="td-field-group">
+                <label class="td-label" for="incidentDateTime">Date and Time of Incident<span class="td-req">*</span></label>
+                <div class="td-input-wrap" id="wrap-incidentDateTime">
+                  <span class="td-input-icon" aria-hidden="true"><i class="bi bi-calendar-event"></i></span>
+                  <input
+                    type="text"
+                    id="incidentDateTime"
+                    name="incidentDateTime"
+                    class="td-control"
+                    placeholder="mm/dd/yyy --:-- --"
+                    onfocus="this.type='datetime-local'"
+                    onblur="if(!this.value)this.type='text'"
+                    required
+                  />
+                </div>
+              </div>
+            </div>
+
+            <!-- Column 3: Description spanning both rows -->
+            <div class="td-issue-col td-issue-col--desc">
+              <div class="td-field-group td-field-group--full-height">
+                <label class="td-label" for="description">Description<span class="td-req">*</span></label>
+                <div class="td-textarea-wrap" id="wrap-description">
+                  <span class="td-textarea-icon" aria-hidden="true"><i class="bi bi-file-earmark-text-fill"></i></span>
+                  <textarea
+                    id="description"
+                    name="description"
+                    class="td-textarea"
+                    maxlength="500"
+                    placeholder="Provide detailed information about the issue (e.g. what happened, what error message appeared, when it started, etc."
+                    required
+                  ></textarea>
+                  <span class="td-char-count" id="charCounter" aria-live="polite">0/500</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- SECTION 3: EVIDENCE (OPTIONAL) -->
+        <section class="td-section-card td-section-card--evidence" aria-labelledby="secEvidenceHeading">
+          <div class="td-section-bar">
+            <span class="td-step-circle" aria-hidden="true">3</span>
+            <h2 class="td-section-heading" id="secEvidenceHeading">Evidence <span>(Optional)</span></h2>
+          </div>
+
+          <div class="td-evidence-inner">
+            <div class="td-dropzone" id="tdDropzone">
+              <p class="td-dropzone-title">Upload Photo/Evidence (Optional)</p>
+              <p class="td-dropzone-sub">You can upload a screenshot or photo related to the issue.</p>
+              <input type="file" id="evidenceFile" name="evidenceFile" accept="image/*" hidden />
+              <button type="button" class="td-choose-file-btn" id="chooseFileBtn">
+                <i class="bi bi-upload" aria-hidden="true"></i>
+                <span>Choose File</span>
+              </button>
+
+              <div class="td-file-status" id="fileStatus">
+                <img src="" alt="Preview" class="td-file-thumb" id="fileThumb" />
+                <span class="td-file-label" id="fileLabel"></span>
+                <button type="button" class="td-file-remove" id="removeFileBtn">Remove</button>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- VALIDATION / ERROR MESSAGE AREA -->
+        <div class="td-validation-banner" id="validationBanner" role="alert" aria-live="assertive">
+          <span class="td-error-circle" aria-hidden="true">!</span>
+          <div>
+            <p class="td-error-heading" id="validationHeading">Validation / Error Message Area</p>
+            <p class="td-error-text" id="validationText">Incase some parts aren't filled up</p>
+          </div>
+        </div>
+
+        <!-- CONFIRMATION CHECKBOX & SUBMIT BUTTON -->
+        <div class="td-action-row">
+          <label class="td-confirm-label" for="confirmAccuracy">
+            <input type="checkbox" id="confirmAccuracy" name="confirmAccuracy" class="td-confirm-checkbox" required />
+            <span>I confirm that the information provided is accurate.</span>
+          </label>
+
+          <button type="submit" class="td-submit-btn">
+            <span>Submit Report</span>
+            <span aria-hidden="true">&rarr;</span>
+          </button>
+        </div>
+
+        <!-- SUCCESS FEEDBACK -->
+        <div class="td-success-banner" id="successBanner" role="status" aria-live="polite">
+          <strong>Report Submitted Successfully!</strong>
+          <p class="mb-1 mt-1">
+            Your reference number is <span class="td-ticket-code" id="ticketRefDisplay"></span>.
+            You can check updates anytime on the <a href="track.html" class="fw-bold text-decoration-underline">Track a Report</a> page.
+          </p>
+        </div>
+      </form>
+    </div>
+  </main>
+
+  <!-- FOOTER -->
+  <footer class="td-footer">
+    <div class="td-container td-footer-inner">
+      <a href="index.html" aria-label="TechDesk Home">
+        <img src="images/techdesk-logo.png" alt="TechDesk" class="td-footer-logo" />
+      </a>
+      <p class="td-footer-tagline">Report &bull; Track &bull; Resolve</p>
+    </div>
+  </footer>
+
+  <!-- Bootstrap JS -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+
+  <script>
+    (function () {
+      const form = document.getElementById("tdReportForm");
+      const descriptionEl = document.getElementById("description");
+      const charCounterEl = document.getElementById("charCounter");
+
+      descriptionEl.addEventListener("input", function () {
+        charCounterEl.textContent = descriptionEl.value.length + "/500";
+      });
+
+      const dropzone = document.getElementById("tdDropzone");
+      const fileInput = document.getElementById("evidenceFile");
+      const chooseFileBtn = document.getElementById("chooseFileBtn");
+      const fileStatus = document.getElementById("fileStatus");
+      const fileThumb = document.getElementById("fileThumb");
+      const fileLabel = document.getElementById("fileLabel");
+      const removeFileBtn = document.getElementById("removeFileBtn");
+
+      chooseFileBtn.addEventListener("click", function () {
+        fileInput.click();
+      });
+
+      function showFilePreview(file) {
+        if (!file) return;
+        fileLabel.textContent = file.name;
+        if (file.type && file.type.startsWith("image/")) {
+          const reader = new FileReader();
+          reader.onload = function (ev) {
+            fileThumb.src = ev.target.result;
+            fileThumb.style.display = "block";
+          };
+          reader.readAsDataURL(file);
+        } else {
+          fileThumb.style.display = "none";
+        }
+        fileStatus.classList.add("visible");
+      }
+
+      fileInput.addEventListener("change", function () {
+        if (fileInput.files && fileInput.files[0]) {
+          showFilePreview(fileInput.files[0]);
+        }
+      });
+
+      ["dragenter", "dragover"].forEach(function (evt) {
+        dropzone.addEventListener(evt, function (e) {
+          e.preventDefault();
+          dropzone.classList.add("is-dragover");
+        });
+      });
+
+      ["dragleave", "drop"].forEach(function (evt) {
+        dropzone.addEventListener(evt, function (e) {
+          e.preventDefault();
+          dropzone.classList.remove("is-dragover");
+        });
+      });
+
+      dropzone.addEventListener("drop", function (e) {
+        if (e.dataTransfer && e.dataTransfer.files && e.dataTransfer.files[0]) {
+          fileInput.files = e.dataTransfer.files;
+          showFilePreview(e.dataTransfer.files[0]);
+        }
+      });
+
+      removeFileBtn.addEventListener("click", function () {
+        fileInput.value = "";
+        fileThumb.src = "";
+        fileLabel.textContent = "";
+        fileStatus.classList.remove("visible");
+      });
+
+      const validationBanner = document.getElementById("validationBanner");
+      const validationHeading = document.getElementById("validationHeading");
+      const validationText = document.getElementById("validationText");
+      const successBanner = document.getElementById("successBanner");
+      const ticketRefDisplay = document.getElementById("ticketRefDisplay");
+
+      const requiredFields = [
+        { id: "fullName", wrapId: "wrap-fullName", label: "Full Name" },
+        { id: "idNumber", wrapId: "wrap-idNumber", label: "Student/Employee ID" },
+        { id: "email", wrapId: "wrap-email", label: "Email" },
+        { id: "category", wrapId: "wrap-category", label: "Category" },
+        { id: "location", wrapId: "wrap-location", label: "Building and Room No." },
+        { id: "urgency", wrapId: "wrap-urgency", label: "Urgency/Impact Level" },
+        { id: "incidentDateTime", wrapId: "wrap-incidentDateTime", label: "Date and Time of Incident" },
+        { id: "description", wrapId: "wrap-description", label: "Description" }
+      ];
+
+      requiredFields.forEach(function (item) {
+        const el = document.getElementById(item.id);
+        const wrap = document.getElementById(item.wrapId);
+        ["input", "change"].forEach(function (evt) {
+          el.addEventListener(evt, function () {
+            wrap.classList.remove("is-invalid");
+          });
+        });
+      });
+
+      form.addEventListener("submit", function (e) {
+        e.preventDefault();
+        successBanner.classList.remove("visible");
+
+        const missing = [];
+
+        requiredFields.forEach(function (item) {
+          const el = document.getElementById(item.id);
+          const wrap = document.getElementById(item.wrapId);
+          const val = el.value.trim();
+          const invalidEmail = item.id === "email" && val && !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(val);
+
+          if (!val || invalidEmail) {
+            wrap.classList.add("is-invalid");
+            missing.push(invalidEmail ? "valid Email" : item.label);
+          } else {
+            wrap.classList.remove("is-invalid");
+          }
+        });
+
+        const confirmBox = document.getElementById("confirmAccuracy");
+        if (!confirmBox.checked) {
+          missing.push("Accuracy Confirmation");
+        }
+
+        if (missing.length > 0) {
+          validationHeading.textContent = "Please complete all required fields";
+          validationText.textContent = "Missing or incomplete: " + missing.join(", ") + ".";
+          validationBanner.classList.add("visible");
+          validationBanner.scrollIntoView({ behavior: "smooth", block: "nearest" });
+          return;
+        }
+
+        validationBanner.classList.remove("visible");
+
+        const refNumber = "TS-2026-" + String(Math.floor(10000 + Math.random() * 90000));
+        const savedReports = JSON.parse(localStorage.getItem("techdesk_reports") || "[]");
+        savedReports.unshift({
+          reportNumber: refNumber,
+          fullName: document.getElementById("fullName").value.trim(),
+          idNumber: document.getElementById("idNumber").value.trim(),
+          email: document.getElementById("email").value.trim(),
+          contactNumber: document.getElementById("contactNumber").value.trim(),
+          category: document.getElementById("category").value,
+          location: document.getElementById("location").value.trim(),
+          urgency: document.getElementById("urgency").value,
+          incidentDateTime: document.getElementById("incidentDateTime").value,
+          description: descriptionEl.value.trim(),
+          statusTitle: "Submitted",
+          submittedAt: new Date().toISOString()
+        });
+        localStorage.setItem("techdesk_reports", JSON.stringify(savedReports));
+
+        ticketRefDisplay.textContent = refNumber;
+        successBanner.classList.add("visible");
+        form.reset();
+        document.getElementById("incidentDateTime").type = "text";
+        charCounterEl.textContent = "0/500";
+        removeFileBtn.click();
+        successBanner.scrollIntoView({ behavior: "smooth", block: "nearest" });
+      });
+    })();
+  </script>
+</body>
 </html>
