@@ -1,4 +1,3 @@
-
 <!doctype html>
 <html lang="en">
 <head>
@@ -8,6 +7,7 @@
     <meta name="description" content="Find answers to common questions about TechDesk.">
 
     <title>FAQ | TechDesk</title>
+    <link rel="icon" type="image/png" href="images/techdesk-logo.png">
 
     <!-- Bootstrap -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
@@ -22,6 +22,7 @@
 
     <!-- CSS -->
     <link rel="stylesheet" href="styles/index.css">
+    <link rel="stylesheet" href="styles/home-layout.css">
     <link rel="stylesheet" href="styles/faq.css">
 </head>
 
@@ -31,33 +32,31 @@
     <header class="navbar navbar-expand-md sticky-top bg-light px-3 px-lg-5">
         <div class="container-fluid">
 
-            <a class="navbar-brand" href="index.html">
-                <img src="images/techdesk-logo.png"
-                     alt="TechDesk"
-                     class="navbar-logo">
+            <a class="navbar-brand d-flex align-items-center mb-0"
+                href="index.html" aria-label="TechDesk home">
+                <img src="images/techdesk-logo.png" alt="TechDesk Logo" class="navbar-logo">
             </a>
 
-            <button class="navbar-toggler" type="button"
+            <button class="navbar-toggler"
+                type="button"
                 data-bs-toggle="collapse"
                 data-bs-target="#site-navigation"
-                aria-label="Toggle navigation">
-
+                aria-label="Toggle navigation"
+                aria-expanded="false"
+                aria-controls="site-navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
 
             <nav class="collapse navbar-collapse justify-content-md-end"
-                 id="site-navigation">
+                id="site-navigation"
+                aria-label="Main navigation">
 
-                <div class="navbar-nav align-items-md-center">
-
+                <div class="navbar-nav align-items-md-center gap-md-4">
                     <a class="nav-link" href="index.html">Home</a>
-
                     <a class="nav-link" href="report.html">Report an Issue</a>
-
                     <a class="nav-link" href="track.html">Track a Report</a>
-
                     <a class="nav-link active" href="faqs.html" aria-current="page">FAQ</a>
-
+                    <a class="nav-link" href="index.html#contact">Contact</a>
                 </div>
             </nav>
 
@@ -69,7 +68,6 @@
 
         <!-- FAQ Banner -->
         <section class="faq-hero">
-
             <div class="container">
 
                 <p class="faq-breadcrumb">
@@ -77,42 +75,33 @@
                 </p>
 
                 <div class="faq-hero-content">
-
                     <h1>Frequently Asked Questions</h1>
-
                     <p>
                         Find quick answers to common questions about IT reporting
                         issues, tracking your reports, and our support process.
                     </p>
-
                 </div>
 
             </div>
-
         </section>
 
 
         <!-- FAQ Content -->
         <section class="faq-section py-4">
-
             <div class="container">
 
                 <!-- Search -->
                 <div class="faq-search mb-4">
-
                     <div class="input-group">
-
                         <span class="input-group-text">
                             <i class="bi bi-search"></i>
                         </span>
-
                         <input type="search"
                                class="form-control"
                                placeholder="Search a question (e.g. 'How do I report an issue?')"
-                               aria-label="Search questions">
-
+                               aria-label="Search questions"
+                               id="faqSearch">
                     </div>
-
                 </div>
 
 
@@ -120,36 +109,34 @@
 
                     <!-- Categories -->
                     <aside class="col-lg-4 col-md-4">
-
                         <div class="faq-categories">
 
-                            <button class="faq-category active" type="button">
+                            <button class="faq-category active" type="button" data-filter="all">
                                 <i class="bi bi-grid"></i>
                                 All Questions
                             </button>
 
-                            <button class="faq-category" type="button">
+                            <button class="faq-category" type="button" data-filter="reporting">
                                 <i class="bi bi-file-earmark-text"></i>
                                 Reporting an Issue
                             </button>
 
-                            <button class="faq-category" type="button">
+                            <button class="faq-category" type="button" data-filter="tracking">
                                 <i class="bi bi-bar-chart-line"></i>
                                 Tracking a Report
                             </button>
 
-                            <button class="faq-category" type="button">
+                            <button class="faq-category" type="button" data-filter="account">
                                 <i class="bi bi-person"></i>
                                 Account &amp; Access
                             </button>
 
-                            <button class="faq-category" type="button">
+                            <button class="faq-category" type="button" data-filter="others">
                                 <i class="bi bi-three-dots"></i>
                                 Others
                             </button>
 
                         </div>
-
                     </aside>
 
 
@@ -158,12 +145,11 @@
 
                         <div class="faq-questions">
 
-                            <h2>All Questions</h2>
+                            <h2 id="faqHeading">All Questions</h2>
 
-                            <div class="faq-item">
+                            <div class="faq-item" data-category="reporting">
                                 <details open>
                                     <summary>How do I report an IT issue?</summary>
-
                                     <p>
                                         Go to Report an Issue, fill out the required
                                         details, add supporting evidence if available,
@@ -172,11 +158,9 @@
                                 </details>
                             </div>
 
-
-                            <div class="faq-item">
+                            <div class="faq-item" data-category="tracking">
                                 <details>
                                     <summary>How can I track the status of my report?</summary>
-
                                     <p>
                                         Go to Track a Report and enter your reference
                                         number to check the latest status of your
@@ -185,11 +169,9 @@
                                 </details>
                             </div>
 
-
-                            <div class="faq-item">
+                            <div class="faq-item" data-category="tracking">
                                 <details>
                                     <summary>How long does it take to resolve a report?</summary>
-
                                     <p>
                                         The time needed depends on the type and severity
                                         of the reported IT issue. You can check your
@@ -198,11 +180,9 @@
                                 </details>
                             </div>
 
-
-                            <div class="faq-item">
+                            <div class="faq-item" data-category="reporting">
                                 <details>
                                     <summary>Can I edit or cancel my report?</summary>
-
                                     <p>
                                         If you need to update or cancel a submitted
                                         report, contact the IT support staff for
@@ -211,24 +191,21 @@
                                 </details>
                             </div>
 
-
-                            <div class="faq-item">
+                            <div class="faq-item" data-category="reporting">
                                 <details>
                                     <summary>What IT issues can I report?</summary>
-
                                     <p>
                                         You can report campus Wi-Fi connection problems,
-                                        laboratory hardware or software issues, and
-                                        login or account-related problems.
+                                        laboratory hardware or software issues, projector
+                                        and AV problems, login or account-related problems,
+                                        and anything else under the Other category.
                                     </p>
                                 </details>
                             </div>
 
-
-                            <div class="faq-item">
+                            <div class="faq-item" data-category="account">
                                 <details>
                                     <summary>Who can use TechDesk?</summary>
-
                                     <p>
                                         Benilde students and employees can use TechDesk
                                         to report campus IT-related issues.
@@ -236,17 +213,52 @@
                                 </details>
                             </div>
 
-
-                            <div class="faq-item">
+                            <div class="faq-item" data-category="others">
                                 <details>
                                     <summary>Who handles my submitted report?</summary>
-
                                     <p>
                                         The IT Admin or IT Support Staff reviews and
                                         handles submitted campus IT reports.
                                     </p>
                                 </details>
                             </div>
+
+                            <div class="faq-item" data-category="tracking">
+                                <details>
+                                    <summary>What if I lost my reference number?</summary>
+                                    <p>Contact the IT support staff with your name and ID number so they can help you find your report.</p>
+                                </details>
+                            </div>
+
+                            <div class="faq-item" data-category="account">
+                                <details>
+                                    <summary>Do I need an account to submit a report?</summary>
+                                    <p>No separate account is needed. Provide your full name, Student/Employee ID, and email on the report form.</p>
+                                </details>
+                            </div>
+
+                            <div class="faq-item" data-category="account">
+                                <details>
+                                    <summary>Can I report a login or email problem?</summary>
+                                    <p>Yes. Choose Login / Account Issues as the category and describe what happens when you try to sign in.</p>
+                                </details>
+                            </div>
+
+                            <div class="faq-item" data-category="others">
+                                <details>
+                                    <summary>What if my concern is not listed?</summary>
+                                    <p>Choose Other as the category and describe the problem in as much detail as you can.</p>
+                                </details>
+                            </div>
+
+                            <div class="faq-item" data-category="others">
+                                <details>
+                                    <summary>How do I contact IT support?</summary>
+                                    <p>Use the contact details in the footer of the Home page.</p>
+                                </details>
+                            </div>
+
+                            <p class="text-muted" id="faqEmpty" hidden>No questions match your search. Try different words or pick another category.</p>
 
                         </div>
 
@@ -255,28 +267,111 @@
                 </div>
 
             </div>
-
         </section>
 
     </main>
 
 
     <!-- Footer -->
-    <footer class="site-footer py-4">
+    <footer class="site-footer py-3" id="contact">
+        <div class="container">
 
-        <div class="container d-flex flex-column flex-sm-row justify-content-between align-items-sm-center gap-2">
+            <div class="d-flex flex-column flex-sm-row justify-content-between align-items-sm-center gap-3">
 
-            <p class="footer-copyright mb-0">TechDesk</p>
+                <div class="footer-brand">
 
-            <p class="footer-notice mb-0">Report • Track • Resolve</p>
+                    <a class="footer-logo d-flex align-items-center mb-2" href="index.html">
+                        <img src="images/techdesk-logo.png" alt="TechDesk Logo" class="footer-logo-image">
+                    </a>
+
+                    <p class="footer-notice mb-0">
+                        Your platform for reporting and tracking IT concerns.
+                    </p>
+
+                    <p class="footer-notice mb-0 mt-2">
+                        <i class="bi bi-envelope" aria-hidden="true"></i> support.techdesk@gmail.com
+                    </p>
+
+                </div>
+
+                <div class="footer-links">
+                    <h3>Quick Links</h3>
+                    <div class="footer-links-list">
+                        <a href="index.html">Home</a>
+                        <a href="report.html">Report an Issue</a>
+                        <a href="track.html">Track a Report</a>
+                        <a href="faqs.html">FAQ</a>
+                    </div>
+                </div>
+
+            </div>
+
+            <div class="footer-bottom mt-3">
+                <p class="footer-copyright mb-0">&copy; 2026 TechDesk</p>
+                <p class="footer-notice mb-0">IT Issue Reporting and Tracking System</p>
+            </div>
 
         </div>
-
     </footer>
 
 
     <!-- Bootstrap JavaScript -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
 
+    <!-- FAQ search and category filter -->
+    <script>
+        // Get the elements we need from the page
+        var searchBox = document.getElementById("faqSearch");
+        var heading = document.getElementById("faqHeading");
+        var emptyMessage = document.getElementById("faqEmpty");
+        var items = document.querySelectorAll(".faq-item");
+        var buttons = document.querySelectorAll(".faq-category");
+
+        // Remember which category is selected ("all" means show everything)
+        var selectedCategory = "all";
+
+        // Show or hide each question depending on the category and the search text
+        function filterQuestions() {
+            var searchText = searchBox.value.toLowerCase();
+            var shown = 0;
+
+            for (var i = 0; i < items.length; i++) {
+                var item = items[i];
+
+                var matchesCategory = (selectedCategory === "all" || item.getAttribute("data-category") === selectedCategory);
+                var matchesSearch = item.textContent.toLowerCase().indexOf(searchText) !== -1;
+
+                if (matchesCategory && matchesSearch) {
+                    item.hidden = false;
+                    shown = shown + 1;
+                } else {
+                    item.hidden = true;
+                }
+            }
+
+            // Show the "no results" message only when nothing matches
+            emptyMessage.hidden = (shown > 0);
+        }
+
+        // When a category button is clicked
+        for (var i = 0; i < buttons.length; i++) {
+            buttons[i].addEventListener("click", function () {
+                selectedCategory = this.getAttribute("data-filter");
+
+                // Move the "active" highlight to the clicked button
+                for (var j = 0; j < buttons.length; j++) {
+                    buttons[j].classList.remove("active");
+                }
+                this.classList.add("active");
+
+                // Change the heading to match, then update the list
+                heading.textContent = this.textContent.trim();
+                filterQuestions();
+            });
+        }
+
+        // When the user types in the search box
+        searchBox.addEventListener("input", filterQuestions);
+    </script>
 </body>
 </html>

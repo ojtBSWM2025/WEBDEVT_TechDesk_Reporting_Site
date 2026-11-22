@@ -4,234 +4,57 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Track a Report | TechDesk</title>
+    <link rel="icon" type="image/png" href="images/techdesk-logo.png">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
     <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
 
-    <style>
-        :root {
-            --wireframe-bg: #f3f6ee;
-            --card-bg-light: #ffffff;
-            --sage-tint: #e4ebd9;
-            --sage-border: #c8d5b9;
-            --sage-dark: #5a7352;
-            --text-main: #2b332a;
-            --text-muted: #6c757d;
-        }
-
-        body {
-            background-color: var(--wireframe-bg);
-            color: var(--text-main);
-            font-family: 'DM Sans', sans-serif;
-            min-height: 100vh;
-            display: flex;
-            flex-direction: column;
-        }
-
-        h1, h2, h3, h4, .navbar-brand {
-            font-family: 'Space Grotesk', sans-serif;
-        }
-
-        .navbar {
-            background-color: #ffffff !important;
-            border-bottom: 1px solid var(--sage-border);
-        }
-
-        .track-hero-banner {
-            position: relative;
-            background: linear-gradient(rgba(0, 0, 0, 0.45), rgba(0, 0, 0, 0.45)), url('https://images.unsplash.com/photo-1497366216548-37526070297c?auto=format&fit=crop&w=1200&q=80') center/cover no-repeat;
-            color: #ffffff;
-            padding: 2.5rem 2rem;
-            border-radius: 8px;
-            margin-bottom: 1.5rem;
-        }
-
-        .track-breadcrumb {
-            font-size: 0.8rem;
-            text-transform: uppercase;
-            letter-spacing: 0.05em;
-            opacity: 0.85;
-            margin-bottom: 0.25rem;
-        }
-
-        .track-hero-title {
-            font-weight: 700;
-            font-size: 2rem;
-            margin-bottom: 0.5rem;
-        }
-
-        .track-hero-copy {
-            font-size: 0.95rem;
-            max-width: 650px;
-            opacity: 0.9;
-            margin-bottom: 0;
-        }
-
-        .track-search-card {
-            background-color: var(--sage-tint);
-            border: 1px solid var(--sage-border);
-            border-radius: 10px;
-            padding: 1.25rem 1.5rem;
-            margin-bottom: 1.25rem;
-        }
-
-            .track-search-card .form-label {
-                font-weight: 600;
-                font-size: 0.9rem;
-                color: var(--text-main);
-            }
-
-            .track-search-card .form-control {
-                background-color: #ffffff;
-                border: 1px solid var(--sage-border);
-            }
-
-        .report-details-card {
-            background-color: var(--sage-tint);
-            border: 1px solid var(--sage-border);
-            border-radius: 10px;
-            padding: 1.5rem;
-            margin-bottom: 1.25rem;
-        }
-
-        .section-card-title {
-            font-weight: 700;
-            font-size: 1.1rem;
-            color: var(--text-main);
-            margin-bottom: 1rem;
-        }
-
-        .detail-label {
-            font-size: 0.75rem;
-            font-weight: 700;
-            text-transform: uppercase;
-            color: var(--text-muted);
-            letter-spacing: 0.03em;
-            margin-bottom: 0.1rem;
-        }
-
-        .detail-value {
-            font-size: 0.95rem;
-            font-weight: 600;
-            color: var(--text-main);
-        }
-
-        .status-callout-box {
-            background-color: #ffffff;
-            border: 1px solid var(--sage-border);
-            border-radius: 8px;
-            padding: 1rem;
-            display: flex;
-            align-items: center;
-            gap: 1rem;
-        }
-
-        .status-callout-icon {
-            font-size: 1.6rem;
-            color: #d97706;
-        }
-
-        .status-callout-title {
-            font-weight: 700;
-            font-size: 0.95rem;
-            margin-bottom: 0.1rem;
-        }
-
-        .status-callout-desc {
-            font-size: 0.8rem;
-            color: var(--text-muted);
-            margin-bottom: 0;
-        }
-
-        .report-timeline-card {
-            background-color: var(--sage-tint);
-            border: 1px solid var(--sage-border);
-            border-radius: 10px;
-            padding: 1.5rem;
-        }
-
-        .wireframe-timeline {
-            display: flex;
-            justify-content: space-between;
-            position: relative;
-            margin-top: 1rem;
-            padding: 0 1rem;
-        }
-
-            .wireframe-timeline::before {
-                content: '';
-                position: absolute;
-                top: 14px;
-                left: 10%;
-                right: 10%;
-                height: 3px;
-                background-color: var(--sage-border);
-                z-index: 1;
-            }
-
-        .w-step {
-            position: relative;
-            z-index: 2;
-            text-align: center;
-            background: transparent;
-            flex: 1;
-        }
-
-        .w-step-dot {
-            width: 28px;
-            height: 28px;
-            border-radius: 50%;
-            background-color: #ffffff;
-            border: 2px solid var(--sage-border);
-            color: var(--text-muted);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            margin: 0 auto 0.4rem;
-            font-size: 0.75rem;
-        }
-
-        .w-step.completed .w-step-dot {
-            background-color: #198754;
-            border-color: #198754;
-            color: #ffffff;
-        }
-
-        .w-step.active .w-step-dot {
-            background-color: var(--sage-dark);
-            border-color: var(--sage-dark);
-            color: #ffffff;
-        }
-
-        .w-step-title {
-            font-size: 0.85rem;
-            font-weight: 700;
-            margin-bottom: 0.1rem;
-        }
-
-        .w-step-date {
-            font-size: 0.72rem;
-            color: var(--text-muted);
-        }
-
-        footer {
-            margin-top: auto;
-            background-color: #ffffff;
-            border-top: 1px solid var(--sage-border);
-        }
-    </style>
+    <link rel="stylesheet" href="styles/index.css">
+    <link rel="stylesheet" href="styles/home-layout.css">
+    <link rel="stylesheet" href="styles/track.css">
 </head>
 <body>
-    <header class="navbar navbar-expand-md sticky-top px-3 px-lg-5">
+    <header class="navbar navbar-expand-md sticky-top bg-light px-3 px-lg-5">
         <div class="container-fluid">
-            <a class="navbar-brand fw-bold" href="index.html">TechDesk</a>
-            <nav class="navbar-nav flex-row gap-3 gap-md-4 ms-auto small">
-                <a class="nav-link" href="index.html">Home</a>
-                <a class="nav-link" href="report.html">Report an issue</a>
-                <a class="nav-link active fw-bold text-dark" href="track.html">Track a Report</a>
-                <a class="nav-link" href="faq.html">FAQ</a>
-                <a class="nav-link" href="contact.html">Contact</a>
+
+            <!-- TechDesk Brand -->
+            <a class="navbar-brand d-flex align-items-center mb-0"
+                href="index.html" aria-label="TechDesk home">
+
+                <img src="images/techdesk-logo.png"
+                    alt="TechDesk Logo"
+                    class="navbar-logo">
+
+            </a>
+
+            <!-- Navigation Toggle -->
+            <button class="navbar-toggler"
+                type="button"
+                data-bs-toggle="collapse"
+                data-bs-target="#site-navigation"
+                aria-label="Toggle navigation"
+                aria-expanded="false"
+                aria-controls="site-navigation">
+
+                <span class="navbar-toggler-icon"></span>
+            </button>
+
+            <!-- Main Navigation -->
+            <nav class="collapse navbar-collapse justify-content-md-end"
+                id="site-navigation"
+                aria-label="Main navigation">
+
+                <div class="navbar-nav align-items-md-center gap-md-4">
+
+                    <a class="nav-link" href="index.html">Home</a>
+                    <a class="nav-link" href="report.html">Report an Issue</a>
+                    <a class="nav-link active" href="track.html" aria-current="page">Track a Report</a>
+                    <a class="nav-link" href="faqs.html">FAQ</a>
+                    <a class="nav-link" href="index.html#contact">Contact</a>
+
+                </div>
             </nav>
+
         </div>
     </header>
 
@@ -247,7 +70,7 @@
                 <form id="track-search-form">
                     <label class="form-label mb-2" for="track-report-number"><i class="bi bi-search"></i> Enter Reference Number</label>
                     <div class="input-group">
-                        <input class="form-control" id="track-report-number" type="text" placeholder="e.g. TS-2024-00123" value="TS-2024-00123" required>
+                        <input class="form-control" id="track-report-number" type="text" placeholder="e.g. TS-2026-12345" autocomplete="off" required>
                         <button class="btn btn-dark px-4" type="submit">Track Report</button>
                     </div>
                     <div class="form-text mt-2 text-muted small">Input the reference number you received after submitting your report. Try sample: <strong>TS-2024-00123</strong></div>
@@ -256,7 +79,7 @@
 
             <div class="alert alert-warning" id="track-notice" role="status" hidden></div>
 
-            <article id="track-report">
+            <article id="track-report" hidden>
                 <div class="report-details-card">
                     <h2 class="section-card-title">Report Details</h2>
                     <div class="row g-3">
@@ -323,91 +146,51 @@
         </div>
     </main>
 
-    <footer class="py-3">
-        <div class="container text-center text-muted small">
-            TechDesk &bull; Report &bull; Track &bull; Resolve
+    <footer class="site-footer py-3" id="contact">
+        <div class="container">
+
+            <div class="d-flex flex-column flex-sm-row justify-content-between align-items-sm-center gap-3">
+
+                <!-- Footer Brand -->
+                <div class="footer-brand">
+
+                    <a class="footer-logo d-flex align-items-center mb-2" href="index.html">
+                        <img src="images/techdesk-logo.png" alt="TechDesk Logo" class="footer-logo-image">
+                    </a>
+
+                    <p class="footer-notice mb-0">
+                        Your platform for reporting and tracking IT concerns.
+                    </p>
+
+                    <p class="footer-notice mb-0 mt-2">
+                        <i class="bi bi-envelope" aria-hidden="true"></i> support@techdesk.example
+                    </p>
+
+                </div>
+
+                <!-- Footer Navigation -->
+                <div class="footer-links">
+                    <h3>Quick Links</h3>
+                    <div class="footer-links-list">
+                        <a href="index.html">Home</a>
+                        <a href="report.html">Report an Issue</a>
+                        <a href="track.html">Track a Report</a>
+                        <a href="faqs.html">FAQ</a>
+                    </div>
+                </div>
+
+            </div>
+
+            <!-- Copyright -->
+            <div class="footer-bottom mt-3">
+                <p class="footer-copyright mb-0">&copy; 2026 TechDesk</p>
+                <p class="footer-notice mb-0">IT Issue Reporting and Tracking System</p>
+            </div>
+
         </div>
     </footer>
 
-    <script>
-        const mockReportsData = {
-            "TS-2024-00123": {
-                category: "Wi-Fi Connection Issues",
-                reportNumber: "TS-2024-00123",
-                dateSubmitted: "March 12, 2024 - 10:24 AM",
-                description: "Unable to connect to the campus wi-fi on the 5th floor. Already tried restarting the device.",
-                location: "SDA Building, 5F - Lab 10",
-                statusTitle: "In Progress",
-                statusDesc: "Our team is currently working on your report.",
-                timeline: [
-                    { title: "Submitted", date: "March 12, 2024 10:24 AM", status: "completed" },
-                    { title: "In Progress", date: "March 12, 2024 11:15 AM", status: "active" },
-                    { title: "Resolved", date: "Pending", status: "" },
-                    { title: "Closed", date: "Pending", status: "" }
-                ]
-            },
-            "TS-2024-00456": {
-                category: "Projector & AV Hardware",
-                reportNumber: "TS-2024-00456",
-                dateSubmitted: "March 10, 2024 - 02:00 PM",
-                description: "HDMI port on lecture room projector is loose and flickering.",
-                location: "Main Hall, Room 302",
-                statusTitle: "Resolved",
-                statusDesc: "Maintenance has replaced the faulty video cable connector.",
-                timeline: [
-                    { title: "Submitted", date: "March 10, 2024", status: "completed" },
-                    { title: "In Progress", date: "March 10, 2024", status: "completed" },
-                    { title: "Resolved", date: "March 11, 2024", status: "completed" },
-                    { title: "Closed", date: "March 11, 2024", status: "active" }
-                ]
-            }
-        };
-
-        const searchForm = document.getElementById('track-search-form');
-        const reportNumberInput = document.getElementById('track-report-number');
-        const noticeBox = document.getElementById('track-notice');
-        const reportArticle = document.getElementById('track-report');
-
-        if (searchForm) {
-            searchForm.addEventListener('submit', function (e) {
-                e.preventDefault();
-                const query = reportNumberInput.value.trim();
-
-                if (mockReportsData[query]) {
-                    const data = mockReportsData[query];
-
-                    document.getElementById('track-category').textContent = data.category;
-                    document.getElementById('track-report-heading').textContent = data.reportNumber;
-                    document.getElementById('track-date-submitted').textContent = data.dateSubmitted;
-                    document.getElementById('track-description').textContent = data.description;
-                    document.getElementById('track-location').textContent = data.location;
-                    document.getElementById('track-status-title').textContent = data.statusTitle;
-                    document.getElementById('track-status-desc').textContent = data.statusDesc;
-
-                    const timelineContainer = document.getElementById('track-timeline');
-                    timelineContainer.innerHTML = '';
-                    data.timeline.forEach(step => {
-                        const div = document.createElement('div');
-                        div.className = `w-step ${step.status}`;
-                        div.innerHTML = `
-                    <div class="w-step-dot"><i class="bi ${step.status === 'completed' || step.status === 'active' ? 'bi-check' : ''}"></i></div>
-                    <div class="w-step-title">${step.title}</div>
-                    <div class="w-step-date">${step.date}</div>
-                  `;
-                        timelineContainer.appendChild(div);
-                    });
-
-                    reportArticle.hidden = false;
-                    if (noticeBox) noticeBox.hidden = true;
-                } else {
-                    reportArticle.hidden = true;
-                    if (noticeBox) {
-                        noticeBox.textContent = `No report found matching "${reportNumberInput.value}". Try entering TS-2024-00123.`;
-                        noticeBox.hidden = false;
-                    }
-                }
-            });
-        }
-    </script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="js/track.js"></script>
 </body>
 </html>

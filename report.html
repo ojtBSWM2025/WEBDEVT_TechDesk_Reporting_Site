@@ -3,13 +3,13 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <meta name="theme-color" content="#DCE2C6" />
+  <meta name="theme-color" content="#F7F6F2" />
   <meta name="description" content="Report an IT concern to TechDesk and monitor its resolution progress." />
   <title>Report an IT Issue | TechDesk</title>
 
   <link rel="icon" type="image/png" href="images/techdesk-logo.png" />
 
-  <!-- Bootstrap & Bootstrap Icons (consistent with index.html and faqs.html) -->
+  <!-- Bootstrap & Bootstrap Icons -->
   <link
     href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
     rel="stylesheet"
@@ -25,21 +25,21 @@
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link
-    href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Space+Grotesk:wght@600;700&display=swap"
+    href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Space+Grotesk:wght@500;600;700&display=swap"
     rel="stylesheet"
   />
 
-  <!-- Repository Base Stylesheet -->
+  <!-- Shared stylesheets (same navbar and footer as the other pages) -->
   <link rel="stylesheet" href="styles/index.css" />
+  <link rel="stylesheet" href="styles/home-layout.css" />
 
   <style>
     :root {
-      --td-page-bg: #DCE2C6;
-      --td-nav-footer-bg: #FFFFFF;
+      --td-page-bg: #F7F6F2;
       --td-title-brown: #856B3F;
       --td-text-dark: #1E1E1E;
-      --td-teal: #56AAB0;
-      --td-teal-hover: #46959B;
+      --td-teal: #2F7F85;
+      --td-teal-hover: #24666B;
       --td-dark-teal: #14474B;
       --td-badge-amber: #B47A44;
       --td-header-pill: #E3EBC4;
@@ -58,63 +58,14 @@
       box-sizing: border-box;
     }
 
-    /* Override styles/index.css (#F7F6F2) to match the presentation slide canvas */
     body.td-report-body {
       margin: 0;
       min-height: 100vh;
       display: flex;
       flex-direction: column;
-      background-color: var(--td-page-bg) !important;
-      color: var(--td-text-dark) !important;
-      font-family: "DM Sans", -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
-    }
-
-    /* ================= NAVBAR ================= */
-    .td-navbar {
-      background-color: var(--td-nav-footer-bg) !important;
-      min-height: 70px;
-      padding: 0.45rem 0;
-      border-bottom: 1px solid rgba(20, 71, 75, 0.08);
-    }
-
-    .td-navbar-logo {
-      height: 46px;
-      width: auto;
-      object-fit: contain;
-      display: block;
-    }
-
-    .td-nav-list {
-      gap: 1.5rem;
-    }
-
-    .td-nav-list .nav-link {
+      background-color: var(--td-page-bg);
       color: var(--td-text-dark);
-      font-size: 0.96rem;
-      font-weight: 500;
-      padding: 0.4rem 0.15rem;
-      position: relative;
-      transition: color 0.15s ease;
-    }
-
-    .td-nav-list .nav-link:hover {
-      color: var(--td-teal);
-    }
-
-    .td-nav-list .nav-link.active {
-      color: var(--td-teal) !important;
-      font-weight: 600;
-    }
-
-    .td-nav-list .nav-link.active::after {
-      content: "";
-      position: absolute;
-      left: 0;
-      right: 0;
-      bottom: -2px;
-      height: 2px;
-      background-color: var(--td-teal);
-      border-radius: 2px;
+      font-family: "DM Sans", -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
     }
 
     /* ================= MAIN PAGE WRAPPER ================= */
@@ -185,7 +136,6 @@
       background-color: var(--td-card-3-bg);
     }
 
-    /* Inner Light Lime-Cream Header Pill */
     .td-section-bar {
       background-color: var(--td-header-pill);
       border-radius: 10px;
@@ -636,34 +586,6 @@
       color: var(--td-dark-teal);
     }
 
-    /* ================= FOOTER ================= */
-    .td-footer {
-      background-color: var(--td-nav-footer-bg) !important;
-      padding: 0.85rem 0;
-      border-top: 1px solid rgba(20, 71, 75, 0.08);
-    }
-
-    .td-footer-inner {
-      display: flex;
-      align-items: center;
-      gap: 1.15rem;
-      flex-wrap: wrap;
-    }
-
-    .td-footer-logo {
-      height: 36px;
-      width: auto;
-      object-fit: contain;
-      display: block;
-    }
-
-    .td-footer-tagline {
-      margin: 0;
-      font-size: 0.86rem;
-      color: #4E5450;
-      font-weight: 500;
-    }
-
     /* ================= RESPONSIVE / MOBILE OPTIMIZATION ================= */
     @media (max-width: 991px) {
       .td-reporter-grid {
@@ -680,15 +602,6 @@
     }
 
     @media (max-width: 767px) {
-      .td-nav-list {
-        gap: 0.25rem;
-        padding-top: 0.65rem;
-      }
-
-      .td-nav-list .nav-link.active::after {
-        display: none;
-      }
-
       .td-main {
         padding: 1rem 0 2rem;
       }
@@ -734,27 +647,27 @@
   </style>
 </head>
 <body class="td-report-body">
+
   <!-- NAVBAR -->
-  <header class="navbar navbar-expand-md sticky-top td-navbar px-3 px-lg-5">
-    <div class="container-fluid td-container">
-      <a class="navbar-brand d-flex align-items-center mb-0" href="index.html" aria-label="TechDesk Home">
-        <img src="images/techdesk-logo.png" alt="TechDesk Logo" class="td-navbar-logo" />
+  <header class="navbar navbar-expand-md sticky-top bg-light px-3 px-lg-5">
+    <div class="container-fluid">
+
+      <a class="navbar-brand d-flex align-items-center mb-0" href="index.html" aria-label="TechDesk home">
+        <img src="images/techdesk-logo.png" alt="TechDesk Logo" class="navbar-logo">
       </a>
 
-      <button
-        class="navbar-toggler"
+      <button class="navbar-toggler"
         type="button"
         data-bs-toggle="collapse"
-        data-bs-target="#techdeskNavbar"
-        aria-controls="techdeskNavbar"
-        aria-expanded="false"
+        data-bs-target="#site-navigation"
         aria-label="Toggle navigation"
-      >
+        aria-expanded="false"
+        aria-controls="site-navigation">
         <span class="navbar-toggler-icon"></span>
       </button>
 
-      <nav class="collapse navbar-collapse justify-content-md-end" id="techdeskNavbar" aria-label="Main navigation">
-        <div class="navbar-nav align-items-md-center td-nav-list">
+      <nav class="collapse navbar-collapse justify-content-md-end" id="site-navigation" aria-label="Main navigation">
+        <div class="navbar-nav align-items-md-center gap-md-4">
           <a class="nav-link" href="index.html">Home</a>
           <a class="nav-link active" href="report.html" aria-current="page">Report an Issue</a>
           <a class="nav-link" href="track.html">Track a Report</a>
@@ -762,6 +675,7 @@
           <a class="nav-link" href="index.html#contact">Contact</a>
         </div>
       </nav>
+
     </div>
   </header>
 
@@ -917,13 +831,10 @@
                 <div class="td-input-wrap" id="wrap-incidentDateTime">
                   <span class="td-input-icon" aria-hidden="true"><i class="bi bi-calendar-event"></i></span>
                   <input
-                    type="text"
+                    type="datetime-local"
                     id="incidentDateTime"
                     name="incidentDateTime"
                     class="td-control"
-                    placeholder="mm/dd/yyy --:-- --"
-                    onfocus="this.type='datetime-local'"
-                    onblur="if(!this.value)this.type='text'"
                     required
                   />
                 </div>
@@ -941,7 +852,7 @@
                     name="description"
                     class="td-textarea"
                     maxlength="500"
-                    placeholder="Provide detailed information about the issue (e.g. what happened, what error message appeared, when it started, etc."
+                    placeholder="Provide detailed information about the issue (e.g. what happened, what error message appeared, when it started, etc.)"
                     required
                   ></textarea>
                   <span class="td-char-count" id="charCounter" aria-live="polite">0/500</span>
@@ -981,8 +892,8 @@
         <div class="td-validation-banner" id="validationBanner" role="alert" aria-live="assertive">
           <span class="td-error-circle" aria-hidden="true">!</span>
           <div>
-            <p class="td-error-heading" id="validationHeading">Validation / Error Message Area</p>
-            <p class="td-error-text" id="validationText">Incase some parts aren't filled up</p>
+            <p class="td-error-heading" id="validationHeading">Please complete all required fields</p>
+            <p class="td-error-text" id="validationText">Some required fields are missing or incomplete.</p>
           </div>
         </div>
 
@@ -1004,7 +915,7 @@
           <strong>Report Submitted Successfully!</strong>
           <p class="mb-1 mt-1">
             Your reference number is <span class="td-ticket-code" id="ticketRefDisplay"></span>.
-            You can check updates anytime on the <a href="track.html" class="fw-bold text-decoration-underline">Track a Report</a> page.
+            You can check updates anytime on the <a href="track.html" id="trackLink" class="fw-bold text-decoration-underline">Track a Report</a> page.
           </p>
         </div>
       </form>
@@ -1012,12 +923,38 @@
   </main>
 
   <!-- FOOTER -->
-  <footer class="td-footer">
-    <div class="td-container td-footer-inner">
-      <a href="index.html" aria-label="TechDesk Home">
-        <img src="images/techdesk-logo.png" alt="TechDesk" class="td-footer-logo" />
-      </a>
-      <p class="td-footer-tagline">Report &bull; Track &bull; Resolve</p>
+  <footer class="site-footer py-3" id="contact">
+    <div class="container">
+
+      <div class="d-flex flex-column flex-sm-row justify-content-between align-items-sm-center gap-3">
+
+        <div class="footer-brand">
+          <a class="footer-logo d-flex align-items-center mb-2" href="index.html">
+            <img src="images/techdesk-logo.png" alt="TechDesk Logo" class="footer-logo-image">
+          </a>
+          <p class="footer-notice mb-0">Your platform for reporting and tracking IT concerns.</p>
+          <p class="footer-notice mb-0 mt-2">
+            <i class="bi bi-envelope" aria-hidden="true"></i> support.techdesk@gmail.com
+          </p>
+        </div>
+
+        <div class="footer-links">
+          <h3>Quick Links</h3>
+          <div class="footer-links-list">
+            <a href="index.html">Home</a>
+            <a href="report.html">Report an Issue</a>
+            <a href="track.html">Track a Report</a>
+            <a href="faqs.html">FAQ</a>
+          </div>
+        </div>
+
+      </div>
+
+      <div class="footer-bottom mt-3">
+        <p class="footer-copyright mb-0">&copy; 2026 TechDesk</p>
+        <p class="footer-notice mb-0">IT Issue Reporting and Tracking System</p>
+      </div>
+
     </div>
   </footer>
 
@@ -1177,9 +1114,9 @@
         localStorage.setItem("techdesk_reports", JSON.stringify(savedReports));
 
         ticketRefDisplay.textContent = refNumber;
+        document.getElementById("trackLink").href = "track.html?ref=" + encodeURIComponent(refNumber);
         successBanner.classList.add("visible");
         form.reset();
-        document.getElementById("incidentDateTime").type = "text";
         charCounterEl.textContent = "0/500";
         removeFileBtn.click();
         successBanner.scrollIntoView({ behavior: "smooth", block: "nearest" });

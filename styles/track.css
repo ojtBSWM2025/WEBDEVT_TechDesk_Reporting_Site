@@ -1,0 +1,216 @@
+:root {
+    --wireframe-bg: #F7F6F2;
+    --card-bg-light: #ffffff;
+    --sage-tint: #e4ebd9;
+    --sage-border: #c8d5b9;
+    --sage-dark: #5a7352;
+    --text-main: #2b332a;
+    --text-muted: #6c757d;
+}
+
+body {
+    background-color: var(--wireframe-bg);
+    color: var(--text-main);
+    font-family: 'DM Sans', sans-serif;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+h1, h2, h3, h4, .navbar-brand {
+    font-family: 'Space Grotesk', sans-serif;
+}
+
+.navbar {
+    background-color: #ffffff !important;
+    border-bottom: 1px solid var(--sage-border);
+}
+
+.track-hero-banner {
+    position: relative;
+    background: linear-gradient(rgba(0, 0, 0, 0.45), rgba(0, 0, 0, 0.45)), url('../images/hero-left.jpg') center/cover no-repeat;
+    color: #ffffff;
+    padding: 2.5rem 2rem;
+    border-radius: 8px;
+    margin-bottom: 1.5rem;
+}
+
+.track-breadcrumb {
+    font-size: 0.8rem;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    opacity: 0.85;
+    margin-bottom: 0.25rem;
+}
+
+.track-hero-title {
+    font-weight: 700;
+    font-size: 2rem;
+    margin-bottom: 0.5rem;
+}
+
+.track-hero-copy {
+    font-size: 0.95rem;
+    max-width: 650px;
+    opacity: 0.9;
+    margin-bottom: 0;
+}
+
+.track-search-card {
+    background-color: var(--sage-tint);
+    border: 1px solid var(--sage-border);
+    border-radius: 10px;
+    padding: 1.25rem 1.5rem;
+    margin-bottom: 1.25rem;
+}
+
+.track-search-card .form-label {
+    font-weight: 600;
+    font-size: 0.9rem;
+    color: var(--text-main);
+}
+
+.track-search-card .form-control {
+    background-color: #ffffff;
+    border: 1px solid var(--sage-border);
+}
+
+.report-details-card {
+    background-color: var(--sage-tint);
+    border: 1px solid var(--sage-border);
+    border-radius: 10px;
+    padding: 1.5rem;
+    margin-bottom: 1.25rem;
+}
+
+.section-card-title {
+    font-weight: 700;
+    font-size: 1.1rem;
+    color: var(--text-main);
+    margin-bottom: 1rem;
+}
+
+.detail-label {
+    font-size: 0.75rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    color: var(--text-muted);
+    letter-spacing: 0.03em;
+    margin-bottom: 0.1rem;
+}
+
+.detail-value {
+    font-size: 0.95rem;
+    font-weight: 600;
+    color: var(--text-main);
+}
+
+.status-callout-box {
+    background-color: #ffffff;
+    border: 1px solid var(--sage-border);
+    border-radius: 8px;
+    padding: 1rem;
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+
+.status-callout-icon {
+    font-size: 1.6rem;
+    color: #d97706;
+}
+
+.status-callout-title {
+    font-weight: 700;
+    font-size: 0.95rem;
+    margin-bottom: 0.1rem;
+}
+
+.status-callout-desc {
+    font-size: 0.8rem;
+    color: var(--text-muted);
+    margin-bottom: 0;
+}
+
+.report-timeline-card {
+    background-color: var(--sage-tint);
+    border: 1px solid var(--sage-border);
+    border-radius: 10px;
+    padding: 1.5rem;
+}
+
+.wireframe-timeline {
+    display: flex;
+    justify-content: space-between;
+    position: relative;
+    margin-top: 1rem;
+    padding: 0 1rem;
+}
+
+.wireframe-timeline::before {
+    content: '';
+    position: absolute;
+    top: 14px;
+    left: 10%;
+    right: 10%;
+    height: 3px;
+    background-color: var(--sage-border);
+    z-index: 1;
+}
+
+.w-step {
+    position: relative;
+    z-index: 2;
+    text-align: center;
+    background: transparent;
+    flex: 1;
+}
+
+.w-step-dot {
+    width: 28px;
+    height: 28px;
+    border-radius: 50%;
+    background-color: #ffffff;
+    border: 2px solid var(--sage-border);
+    color: var(--text-muted);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto 0.4rem;
+    font-size: 0.75rem;
+}
+
+.w-step.completed .w-step-dot {
+    background-color: #198754;
+    border-color: #198754;
+    color: #ffffff;
+}
+
+.w-step.active .w-step-dot {
+    background-color: var(--sage-dark);
+    border-color: var(--sage-dark);
+    color: #ffffff;
+}
+
+.w-step-title {
+    font-size: 0.85rem;
+    font-weight: 700;
+    margin-bottom: 0.1rem;
+}
+
+.w-step-date {
+    font-size: 0.72rem;
+    color: var(--text-muted);
+}
+
+/* Keep the footer at the bottom and stack the timeline on phones */
+main {
+    flex: 1;
+}
+
+@media (max-width: 575px) {
+    .wireframe-timeline { flex-direction: column; gap: 1rem; padding: 0; }
+    .wireframe-timeline::before { display: none; }
+    .w-step { display: flex; align-items: center; gap: 0.75rem; text-align: left; }
+    .w-step-dot { margin: 0; flex-shrink: 0; }
+}
