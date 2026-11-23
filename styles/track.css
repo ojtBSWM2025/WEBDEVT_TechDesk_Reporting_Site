@@ -28,7 +28,8 @@ h1, h2, h3, h4, .navbar-brand {
 
 .track-hero-banner {
     position: relative;
-    background: linear-gradient(rgba(0, 0, 0, 0.45), rgba(0, 0, 0, 0.45)), url('../images/hero-left.jpg') center/cover no-repeat;
+    background:linear-gradient(90deg, rgba(0, 0, 0, 0.75) 0%, rgba(0, 0, 0, 0.7) 45%, rgba(0, 0, 0, 0.25) 100%),
+    url('../images/banner-track.jpg') center / cover no-repeat;
     color: #ffffff;
     padding: 2.5rem 2rem;
     border-radius: 8px;
@@ -213,4 +214,12 @@ main {
     .wireframe-timeline::before { display: none; }
     .w-step { display: flex; align-items: center; gap: 0.75rem; text-align: left; }
     .w-step-dot { margin: 0; flex-shrink: 0; }
+}
+
+@media (max-width: 767px) {
+    .track-hero-banner {
+        background:
+            linear-gradient(rgba(0, 0, 0, 0.65), rgba(0, 0, 0, 0.65)),
+            url('../images/banner-track.jpg') center / cover no-repeat;
+    }
 }

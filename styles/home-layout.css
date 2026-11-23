@@ -1,6 +1,5 @@
 
-/* HOME PAGE LAYOUT
-   Navbar, How It Works, Help Banner, Footer */
+/* HOME PAGE LAYOUT */
 
 /* GENERAL */
 
@@ -71,12 +70,12 @@ header.navbar .container-fluid {
 
 .how-kicker {
     color: #5E8B7E;
-    font-size: 0.85rem;
-    letter-spacing: 1px;
+    font-size: 1.05rem;
+    letter-spacing: 1.5px;
 }
 
 .how-title {
-    color: #2F3A3A;
+    color: 	#2F3A3A;
     font-family: 'Space Grotesk', sans-serif;
     font-size: clamp(2rem, 3vw, 2.5rem);
     font-weight: 700;
@@ -135,28 +134,28 @@ header.navbar .container-fluid {
 
 .step-number {
     position: absolute;
-    top: -12px;
+    top: -14px;
     left: 0;
 
     background-color: #B77B43;
     color: #FFFFFF;
 
     border-radius: 50%;
-    width: 30px;
-    height: 30px;
+    width: 36px;
+    height: 36px;
 
     display: flex;
     align-items: center;
     justify-content: center;
 
-    font-size: 0.8rem;
+    font-size: 0.9rem;
     font-weight: 700;
     z-index: 1;
 }
 
 .step-icon {
-    width: 68px;
-    height: 68px;
+    width: clamp(64px, 5.2vw, 84px);
+    height: clamp(64px, 5.2vw, 84px);
     border-radius: 50%;
 
     background-color: #FAF8F1;
@@ -168,7 +167,7 @@ header.navbar .container-fluid {
     align-items: center;
     justify-content: center;
 
-    font-size: 1.9rem;
+    font-size: clamp(1.7rem, 2.4vw, 2.3rem);
 }
 
 .step-content {
@@ -177,15 +176,15 @@ header.navbar .container-fluid {
 
 .step-title {
     color: #263C38;
-    font-size: 1.1rem;
+    font-size: clamp(1.15rem, 1.4vw, 1.4rem);
     font-weight: 700;
-    margin-bottom: 0.3rem;
+    margin-bottom: 0.35rem;
 }
 
 .step-description {
     color: #354B45;
-    font-size: 0.85rem;
-    line-height: 1.4;
+    font-size: clamp(0.88rem, 1.05vw, 1rem);
+    line-height: 1.5;
 }
 
 /* Arrows Between Steps */
@@ -243,7 +242,7 @@ header.navbar .container-fluid {
 }
 
 .volunteer-title {
-    color: #263C38;
+    color: #856B3F;
     font-family: 'Space Grotesk', sans-serif;
     font-size: 1.35rem;
     font-weight: 700;
@@ -484,7 +483,8 @@ header.navbar .container-fluid {
 }
 
 .how-heading {
-    margin-bottom: 1.2rem !important;
+    max-width: none;
+    margin-bottom: 1.5rem !important;
 }
 
 /* COMMON IT ISSUES */
